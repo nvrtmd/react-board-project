@@ -22,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'GmarketSansMedium';
     font-size: 1.4rem;
     line-height: 1.43;
+    background-color: #28277C;
   }
   
   a, a:hover, a:focus {
