@@ -1,10 +1,13 @@
-import Layout from "./layout/layout";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Board from "./components/pages/Board";
 
 function App() {
   return (
-    <Layout>
-      <div>Hello, World!</div>
-    </Layout>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Board />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
