@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Layout from "../../layout/layout";
+import Layout from "../../../layout/layout";
 
 export default function Board() {
   const [postsData, setPostsData] = useState([]);
