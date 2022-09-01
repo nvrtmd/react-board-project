@@ -17,8 +17,8 @@ export default function Profile() {
   });
 
   useEffect(() => {
-    app
-      .get(`/user/profile`)
+    axios
+      .get(`/user/profile`, { withCredentials: true })
       .then((res) => setUserData(res.data.data))
       .catch((err) => {});
   }, []);
