@@ -1,31 +1,69 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components/macro";
 import axios from "axios";
 import Layout from "../../../layout/layout";
 import { theme } from "../../../styles/theme";
 
 export default function Signup() {
-  function hello() {
-    console.log("hello");
-  }
+  const navigate = useNavigate();
+  const [signupData, setSignupData] = useState({
+    userId: "",
+    userPassword: "",
+    userName: "",
+    userNickname: "",
+    userPhone: "",
+  });
+
+  const handleInputChange = (e) => {
+    setSignupData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleButtonClick = async () => {
+    await axios.post(`/user/signup`, signupData);
+    navigate(`/`);
+  };
+
   return (
     <Layout>
-      <label for="userId">아이디(메일주소)</label>
-      <input type="text" id="userId" name="userId" />
+      <label for="userId">아이디</label>
+      <input
+        type="text"
+        id="userId"
+        name="userId"
+        onChange={handleInputChange}
+      />
       <label for="userPassword">비밀번호</label>
-      <input type="password" id="userPassword" name="userPassword" />
-      <label for="userPasswordConfirm">비밀번호 확인</label>
       <input
         type="password"
-        id="userPasswordConfirm"
-        name="userPasswordConfirm"
+        id="userPassword"
+        name="userPassword"
+        onChange={handleInputChange}
       />
+      <label for="userName">닉네임</label>
+      <input
+        type="text"
+        id="userNickname"
+        name="userNickname"
+        onChange={handleInputChange}
+      />
+
       <label for="userName">이름</label>
-      <input type="text" id="userName" name="userName" />
+      <input
+        type="text"
+        id="userName"
+        name="userName"
+        onChange={handleInputChange}
+      />
       <label for="userPhone">전화번호</label>
-      <input type="text" id="userPhone" name="userPhone" />
+      <input
+        type="text"
+        id="userPhone"
+        name="userPhone"
+        onChange={handleInputChange}
+      />
       <ButtonWrapper>
-        <Button onClick={hello}>회원가입</Button>
+        <Button onClick={handleButtonClick}>회원가입</Button>
       </ButtonWrapper>
     </Layout>
   );

@@ -6,7 +6,7 @@ export default function Board() {
   const [postsData, setPostsData] = useState([]);
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/board/list`)
+      .get(`/board/list`)
       .then((res) => setPostsData(res.data.data))
       .catch((err) => {});
   }, []);
