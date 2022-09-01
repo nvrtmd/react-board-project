@@ -2,8 +2,8 @@ import axios from "axios";
 
 const baseURL =
   process.env.NODE_ENV === "development"
-    ? "http://localhost:3001/"
-    : "http://example.com";
+    ? "http://localhost:3000/"
+    : process.env.REACT_APP_API_URL;
 
 const app = axios.create({
   baseURL,
