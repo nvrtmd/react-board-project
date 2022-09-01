@@ -4,6 +4,7 @@ import styled from "styled-components/macro";
 import axios from "axios";
 import Layout from "../../../layout/layout";
 import { theme } from "../../../styles/theme";
+import app from "../../../utils/axiosConfig";
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -16,8 +17,8 @@ export default function Profile() {
   });
 
   useEffect(() => {
-    axios
-      .get(`/user/profile`, { withCredentials: true })
+    app
+      .get(`/user/profile`)
       .then((res) => setUserData(res.data.data))
       .catch((err) => {});
   }, []);
