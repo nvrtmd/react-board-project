@@ -53,46 +53,60 @@ export default function ProfilePage() {
 
   return (
     <Layout>
-      <label htmlFor="userId">아이디</label>
-      <input
-        type="text"
-        id="userId"
-        name="userId"
-        value={userData.userId}
-        onChange={handleInputChange}
-      />
-      <label htmlFor="userPassword">비밀번호</label>
-      <input
-        type="password"
-        id="userPassword"
-        name="userPassword"
-        onChange={handleInputChange}
-      />
-      <label htmlFor="userName">닉네임</label>
-      <input
-        type="text"
-        id="userNickname"
-        name="userNickname"
-        value={userData.userNickname}
-        onChange={handleInputChange}
-      />
-
-      <label htmlFor="userName">이름</label>
-      <input
-        type="text"
-        id="userName"
-        name="userName"
-        value={userData.userName}
-        onChange={handleInputChange}
-      />
-      <label htmlFor="userPhone">전화번호</label>
-      <input
-        type="text"
-        id="userPhone"
-        name="userPhone"
-        value={userData.userPhone}
-        onChange={handleInputChange}
-      />
+      <PageTitle>PROFILE</PageTitle>
+      <ProfileForm>
+        <div>
+          <ProfileInput>
+            <label htmlFor="userId">아이디</label>
+            <input
+              type="text"
+              id="userId"
+              name="userId"
+              value={userData.userId}
+              onChange={handleInputChange}
+            />
+          </ProfileInput>
+          <ProfileInput>
+            <label htmlFor="userPassword">비밀번호</label>
+            <input
+              type="password"
+              id="userPassword"
+              name="userPassword"
+              onChange={handleInputChange}
+            />
+          </ProfileInput>
+          <ProfileInput>
+            <label htmlFor="userName">닉네임</label>
+            <input
+              type="text"
+              id="userNickname"
+              name="userNickname"
+              value={userData.userNickname}
+              onChange={handleInputChange}
+            />
+          </ProfileInput>
+          <ProfileInput>
+            <label htmlFor="userName">이름</label>
+            <input
+              type="text"
+              id="userName"
+              name="userName"
+              value={userData.userName}
+              onChange={handleInputChange}
+            />
+          </ProfileInput>
+          <ProfileInput>
+            <label htmlFor="userPhone">전화번호</label>
+            <input
+              type="text"
+              id="userPhone"
+              name="userPhone"
+              value={userData.userPhone}
+              onChange={handleInputChange}
+            />
+          </ProfileInput>
+        </div>
+      </ProfileForm>
 
       <ButtonWrapper>
         <Button onClick={handleModifyButtonClick}>정보수정</Button>
@@ -102,16 +116,32 @@ export default function ProfilePage() {
     </Layout>
   );
 }
+
+const PageTitle = styled.div`
+  text-align: center;
+`;
+
+const ProfileForm = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+`;
+
+const ProfileInput = styled.div`
+  padding: 0.3rem 0;
+`;
+
 const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  width: 45%;
+  margin: 0 auto;
 `;
 
 const Button = styled.div`
   background: ${theme.color.lightPurple};
-  width: 20%;
-  padding: 1rem 0px;
+  padding: 1rem 1.5rem;
   border-radius: 15px;
   display: flex;
   align-items: center;

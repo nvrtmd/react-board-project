@@ -48,6 +48,7 @@ export default function CreatePage() {
 
   return (
     <Layout>
+      <PageTitle>CREATE POST</PageTitle>
       <PostCreateForm>
         <div>
           <div>
@@ -88,6 +89,10 @@ export default function CreatePage() {
     </Layout>
   );
 }
+
+const PageTitle = styled.div`
+  text-align: center;
+`;
 
 const PostCreateForm = styled.div`
   display: flex;
