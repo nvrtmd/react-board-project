@@ -21,6 +21,7 @@ export default function Profile() {
       method: "GET",
       withCredentials: true,
       credentials: "include",
+      mode: "cors",
     });
   };
 
