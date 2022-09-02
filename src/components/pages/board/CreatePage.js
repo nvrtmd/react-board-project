@@ -48,24 +48,38 @@ export default function CreatePage() {
 
   return (
     <Layout>
-      <label htmlFor="postTitle">제목</label>
-      <input
-        id="postTitle"
-        name="postTitle"
-        type="text"
-        onChange={handleInputChange}
-      />
-      <label htmlFor="postContents">내용</label>
-      <textarea
-        name="postContents"
-        rows="20"
-        cols="50"
-        onChange={handleInputChange}
-      ></textarea>
-      <select id="postDisplay" name="postDisplay" onChange={handleInputChange}>
-        <option value={true}>게시함</option>
-        <option value={false}>게시안함</option>
-      </select>
+      <PostCreateForm>
+        <div>
+          <div>
+            <label htmlFor="postTitle">제목</label>
+            <input
+              id="postTitle"
+              name="postTitle"
+              type="text"
+              onChange={handleInputChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="postContents">내용</label>
+            <textarea
+              name="postContents"
+              rows="20"
+              cols="50"
+              onChange={handleInputChange}
+            ></textarea>
+          </div>
+          <div>
+            <select
+              id="postDisplay"
+              name="postDisplay"
+              onChange={handleInputChange}
+            >
+              <option value={true}>게시함</option>
+              <option value={false}>게시안함</option>
+            </select>
+          </div>
+        </div>
+      </PostCreateForm>
 
       <ButtonWrapper>
         <Button onClick={handleCreateButtonClick}>작성</Button>
@@ -74,16 +88,24 @@ export default function CreatePage() {
     </Layout>
   );
 }
+
+const PostCreateForm = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+`;
+
 const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  width: 20%;
+  margin: 0 auto;
 `;
 
 const Button = styled.div`
   background: ${theme.color.lightPurple};
-  width: 20%;
-  padding: 1rem 0px;
+  padding: 1rem 1.5rem;
   border-radius: 15px;
   display: flex;
   align-items: center;
