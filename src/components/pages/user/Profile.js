@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Layout from "../../../layout/layout";
+import styled from "styled-components/macro";
+import { theme } from "../../../styles/theme";
+import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     userId: "",
     userName: "",
@@ -28,12 +31,41 @@ export default function Profile() {
     getUserData();
   }, []);
 
+  const handleButtonClick = async () => {
+    await axios.get(`/user/signout`, { withCredentials: true });
+    navigate(`/`);
+  };
+
   return (
     <Layout>
       <div>아이디: {userData.userId}</div>
       <div>이름: {userData.userName}</div>
       <div>닉네임: {userData.userNickname}</div>
       <div>전화번호: {userData.userPhone}</div>
+      <ButtonWrapper>
+        <Button onClick={handleButtonClick}>로그아웃</Button>
+      </ButtonWrapper>
     </Layout>
   );
 }
+const ButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Button = styled.div`
+  background: ${theme.color.lightPurple};
+  width: 20%;
+  padding: 1rem 0px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    background: ${theme.color.primary};
+  }
+`;
