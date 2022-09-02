@@ -5,6 +5,7 @@ import SigninPage from "./components/pages/user/SigninPage";
 import ProfilePage from "./components/pages/user/ProfilePage";
 import PostPage from "./components/pages/board/PostPage";
 import CreatePage from "./components/pages/board/CreatePage";
+import ModifyPage from "./components/pages/board/ModifyPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/board/list" element={<ListPage />} />
         <Route path="/board/:postId" element={<PostPage />} />
         <Route path="/board/create" element={<CreatePage />} />
+        <Route path="/board/modify/:postId" element={<ModifyPage />} />
         <Route path="/user/signup" element={<SignupPage />} />
         <Route path="/user/signin" element={<SigninPage />} />
         <Route path="/user/profile" element={<ProfilePage />} />

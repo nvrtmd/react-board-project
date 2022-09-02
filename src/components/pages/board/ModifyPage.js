@@ -5,7 +5,7 @@ import styled from "styled-components/macro";
 import { theme } from "../../../styles/theme";
 import Layout from "../../../layout/layout";
 
-export default function PostPage() {
+export default function ModifyPage() {
   const navigate = useNavigate();
   const params = useParams();
   const [postData, setPostData] = useState({
@@ -36,44 +36,44 @@ export default function PostPage() {
     getPostData();
   }, [params.postId]);
 
-  const handleDeleteButtonClick = async () => {
-    try {
-      await axios.delete(`/board/delete/${postData.postId}`, {
-        withCredentials: true,
-      });
-      navigate("/board/list");
-    } catch {
-      alert("삭제 권한이 없습니다.");
-    }
+  const handleInputChange = (e) => {
+    setPostData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleModifyButtonClick = async () => {
-    try {
-      const userData = await axios.get(`/user/profile`, {
-        withCredentials: true,
-      });
-      if (userData.data.data.user_nickname === postData.postRegisterUserName) {
-        navigate(`/board/modify/${postData.postId}`);
-      } else {
-        const error = new Error("unauthorized user");
-        throw error;
-      }
-    } catch {
-      alert("수정 권한이 없습니다.");
-    }
+    console.log("modified");
   };
 
   return (
     <Layout>
-      <div>{postData.postTitle}</div>
-      <div>{postData.postContents}</div>
-      <div>{postData.postRegisterUserName}</div>
-      <div>{postData.postViews}</div>
-      <div>{postData.postDisplay}</div>
+      <label>제목</label>
+      <input
+        id="postTitle"
+        name="postTitle"
+        type="text"
+        value={postData.postTitle}
+        onChange={handleInputChange}
+      />
+      <label>내용</label>
+      <textarea
+        name="postContents"
+        rows="20"
+        cols="50"
+        value={postData.postContents}
+        onChange={handleInputChange}
+      ></textarea>
+      <select
+        id="postDisplay"
+        name="postDisplay"
+        onChange={handleInputChange}
+        value={postData.postDisplay ? true : false}
+      >
+        <option value={true}>게시함</option>
+        <option value={false}>게시안함</option>
+      </select>
+
       <ButtonWrapper>
         <Button onClick={handleModifyButtonClick}>수정</Button>
-        <Button onClick={handleDeleteButtonClick}>삭제</Button>
-        <Button onClick={() => navigate("/board/list")}>목록</Button>
       </ButtonWrapper>
     </Layout>
   );
