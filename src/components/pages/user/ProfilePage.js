@@ -38,17 +38,17 @@ export default function ProfilePage() {
 
   const handleSignoutButtonClick = async () => {
     await axios.get(`/user/signout`, { withCredentials: true });
-    navigate(`/`);
+    navigate(`/board/list`);
   };
 
   const handleModifyButtonClick = async () => {
     await axios.post(`/user/profile`, userData, { withCredentials: true });
-    navigate(`/`);
+    navigate(`/board/list`);
   };
 
   const handleUserDeleteButtonClick = async () => {
     await axios.delete(`/user/deleteuser`, { withCredentials: true });
-    navigate(`/`);
+    navigate(`/board/list`);
   };
 
   return (
