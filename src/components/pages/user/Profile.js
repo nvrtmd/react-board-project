@@ -31,8 +31,13 @@ export default function Profile() {
     getUserData();
   }, []);
 
-  const handleButtonClick = async () => {
+  const handleSignoutButtonClick = async () => {
     await axios.get(`/user/signout`, { withCredentials: true });
+    navigate(`/`);
+  };
+
+  const handleUserDeleteButtonClick = async () => {
+    await axios.delete(`/user/deleteuser`, { withCredentials: true });
     navigate(`/`);
   };
 
@@ -43,7 +48,8 @@ export default function Profile() {
       <div>닉네임: {userData.userNickname}</div>
       <div>전화번호: {userData.userPhone}</div>
       <ButtonWrapper>
-        <Button onClick={handleButtonClick}>로그아웃</Button>
+        <Button onClick={handleSignoutButtonClick}>로그아웃</Button>
+        <Button onClick={handleUserDeleteButtonClick}>회원탈퇴</Button>
       </ButtonWrapper>
     </Layout>
   );
