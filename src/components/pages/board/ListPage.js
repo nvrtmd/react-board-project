@@ -50,14 +50,16 @@ export default function ListPage() {
                     key={data.post_id}
                     onClick={() => moveToPost(data.post_id)}
                   >
-                    <td>{data.post_id}</td>
-                    <td>{data.post_title}</td>
-                    <td>{data.post_contents.substr(0, 5) + "..."}</td>
-                    <td>{data.post_views}</td>
-                    <td>
+                    <TableCell>{data.post_id}</TableCell>
+                    <TableCell>{data.post_title}</TableCell>
+                    <TableCell>
+                      {data.post_contents.substr(0, 5) + "..."}
+                    </TableCell>
+                    <TableCell>{data.post_views}</TableCell>
+                    <TableCell>
                       {moment(data.post_register_date).format("YY-MM-DD HH:mm")}
-                    </td>
-                    <td>{data.post_register_user_name}</td>
+                    </TableCell>
+                    <TableCell>{data.post_register_user_name}</TableCell>
                   </tr>
                 ))}
           </tbody>
@@ -70,6 +72,11 @@ export default function ListPage() {
 const TableWrapper = styled.div`
   display: flex;
   justify-content: center;
+  padding: 2rem 0;
+`;
+
+const TableCell = styled.td`
+  padding: 0.5rem 1.5rem;
 `;
 
 const ButtonWrapper = styled.div`
