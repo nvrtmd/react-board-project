@@ -16,9 +16,24 @@ export default function Signin() {
     setSigninData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const postUserData = async (url, body) => {
+    return await fetch(`${process.env.REACT_APP_API_URL}/user/signin`, {
+      method: "POST",
+      headers: {
+        Accept: "applicaiton/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(signinData),
+      withCredentials: true,
+      credentials: "include",
+    });
+  };
+
   const handleButtonClick = async () => {
-    await axios.post(`/user/signin`, signinData);
-    navigate(`/`);
+    // await axios.post(`/user/signin`, signinData);
+    const data = postUserData();
+    console.log(data);
+    // navigate(`/`);
   };
 
   return (
