@@ -23,26 +23,49 @@ export default function SigninPage() {
 
   return (
     <Layout>
-      <label htmlFor="userId">아이디</label>
-      <input
-        type="text"
-        id="userId"
-        name="userId"
-        onChange={handleInputChange}
-      />
-      <label htmlFor="userPassword">비밀번호</label>
-      <input
-        type="password"
-        id="userPassword"
-        name="userPassword"
-        onChange={handleInputChange}
-      />
+      <PageTitle>SIGN IN</PageTitle>
+      <SigninForm>
+        <div>
+          <SigninInput>
+            <label htmlFor="userId">아이디</label>
+            <input
+              type="text"
+              id="userId"
+              name="userId"
+              onChange={handleInputChange}
+            />
+          </SigninInput>
+          <SigninInput>
+            <label htmlFor="userPassword">비밀번호</label>
+            <input
+              type="password"
+              id="userPassword"
+              name="userPassword"
+              onChange={handleInputChange}
+            />
+          </SigninInput>
+        </div>
+      </SigninForm>
       <ButtonWrapper>
         <Button onClick={handleButtonClick}>로그인</Button>
       </ButtonWrapper>
     </Layout>
   );
 }
+
+const PageTitle = styled.div`
+  text-align: center;
+`;
+
+const SigninForm = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+`;
+
+const SigninInput = styled.div`
+  padding: 0.3rem 0;
+`;
 
 const ButtonWrapper = styled.div`
   display: flex;

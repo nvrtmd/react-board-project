@@ -1,5 +1,6 @@
 import styled from "styled-components/macro";
 import { useNavigate } from "react-router-dom";
+import { theme } from "../styles/theme";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -24,6 +25,7 @@ export default function Header() {
 
 const HeaderContainer = styled.div`
   padding: 1rem;
+  color: ${theme.color.grey};
 `;
 
 const HeaderWrapper = styled.div`

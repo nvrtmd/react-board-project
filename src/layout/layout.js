@@ -15,19 +15,16 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: green;
   height: 100vh;
 `;
 
 const Wrapper = styled.div`
-  background: red;
   height: 90%;
   width: 90%;
 `;
 
 const Main = styled.main`
   background-color: ${theme.color.secondary};
-  /* height: 90%; */
   border-radius: 30px;
   padding: 2rem 1rem;
   margin: auto;
