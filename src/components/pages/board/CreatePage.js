@@ -48,14 +48,14 @@ export default function CreatePage() {
 
   return (
     <Layout>
-      <label>제목</label>
+      <label htmlFor="postTitle">제목</label>
       <input
         id="postTitle"
         name="postTitle"
         type="text"
         onChange={handleInputChange}
       />
-      <label>내용</label>
+      <label htmlFor="postContents">내용</label>
       <textarea
         name="postContents"
         rows="20"

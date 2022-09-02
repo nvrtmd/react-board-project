@@ -53,7 +53,7 @@ export default function ModifyPage() {
 
   return (
     <Layout>
-      <label>제목</label>
+      <label htmlFor="postTitle">제목</label>
       <input
         id="postTitle"
         name="postTitle"
@@ -61,7 +61,7 @@ export default function ModifyPage() {
         value={postData.postTitle}
         onChange={handleInputChange}
       />
-      <label>내용</label>
+      <label htmlFor="postContents">내용</label>
       <textarea
         name="postContents"
         rows="20"
