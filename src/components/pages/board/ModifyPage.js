@@ -62,6 +62,7 @@ export default function ModifyPage() {
               id="postTitle"
               name="postTitle"
               type="text"
+              value={postData.postTitle}
               onChange={handleInputChange}
             />
           </div>
@@ -71,6 +72,7 @@ export default function ModifyPage() {
               name="postContents"
               rows="20"
               cols="50"
+              value={postData.postContents}
               onChange={handleInputChange}
             ></textarea>
           </div>
@@ -79,6 +81,7 @@ export default function ModifyPage() {
               id="postDisplay"
               name="postDisplay"
               onChange={handleInputChange}
+              value={postData.postDisplay ? true : false}
             >
               <option value={true}>게시함</option>
               <option value={false}>게시안함</option>
