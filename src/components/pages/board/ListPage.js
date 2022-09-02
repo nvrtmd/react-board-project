@@ -46,7 +46,7 @@ export default function ListPage() {
               postsData
                 .filter((data) => data.post_display)
                 .map((data) => (
-                  <tr
+                  <TableRow
                     key={data.post_id}
                     onClick={() => moveToPost(data.post_id)}
                   >
@@ -60,7 +60,7 @@ export default function ListPage() {
                       {moment(data.post_register_date).format("YY-MM-DD HH:mm")}
                     </TableCell>
                     <TableCell>{data.post_register_user_name}</TableCell>
-                  </tr>
+                  </TableRow>
                 ))}
           </tbody>
         </table>
@@ -73,6 +73,10 @@ const TableWrapper = styled.div`
   display: flex;
   justify-content: center;
   padding: 2rem 0;
+`;
+
+const TableRow = styled.tr`
+  cursor: pointer;
 `;
 
 const TableCell = styled.td`

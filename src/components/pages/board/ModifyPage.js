@@ -53,38 +53,56 @@ export default function ModifyPage() {
 
   return (
     <Layout>
-      <label htmlFor="postTitle">제목</label>
-      <input
-        id="postTitle"
-        name="postTitle"
-        type="text"
-        value={postData.postTitle}
-        onChange={handleInputChange}
-      />
-      <label htmlFor="postContents">내용</label>
-      <textarea
-        name="postContents"
-        rows="20"
-        cols="50"
-        value={postData.postContents}
-        onChange={handleInputChange}
-      ></textarea>
-      <select
-        id="postDisplay"
-        name="postDisplay"
-        onChange={handleInputChange}
-        value={postData.postDisplay ? true : false}
-      >
-        <option value={true}>게시함</option>
-        <option value={false}>게시안함</option>
-      </select>
-
+      <PageTitle>MODIFY POST</PageTitle>
+      <PostModifyForm>
+        <div>
+          <div>
+            <label htmlFor="postTitle">제목</label>
+            <input
+              id="postTitle"
+              name="postTitle"
+              type="text"
+              onChange={handleInputChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="postContents">내용</label>
+            <textarea
+              name="postContents"
+              rows="20"
+              cols="50"
+              onChange={handleInputChange}
+            ></textarea>
+          </div>
+          <div>
+            <select
+              id="postDisplay"
+              name="postDisplay"
+              onChange={handleInputChange}
+            >
+              <option value={true}>게시함</option>
+              <option value={false}>게시안함</option>
+            </select>
+          </div>
+        </div>
+      </PostModifyForm>
       <ButtonWrapper>
         <Button onClick={handleModifyButtonClick}>수정</Button>
       </ButtonWrapper>
     </Layout>
   );
 }
+
+const PageTitle = styled.div`
+  text-align: center;
+`;
+
+const PostModifyForm = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+`;
+
 const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
