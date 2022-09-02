@@ -5,7 +5,7 @@ import axios from "axios";
 import Layout from "../../../layout/layout";
 import { theme } from "../../../styles/theme";
 
-export default function Signin() {
+export default function SigninPage() {
   const navigate = useNavigate();
   const [signinData, setSigninData] = useState({
     userId: "",
@@ -18,7 +18,7 @@ export default function Signin() {
 
   const handleButtonClick = async () => {
     await axios.post(`/user/signin`, signinData, { withCredentials: true });
-    navigate(`/profile`);
+    navigate(`/user/profile`);
   };
 
   return (

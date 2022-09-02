@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components/macro";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Layout from "../../../layout/layout";
+import styled from "styled-components/macro";
 import { theme } from "../../../styles/theme";
+import { useNavigate } from "react-router-dom";
 
-export default function Signup() {
+export default function ProfilePage() {
   const navigate = useNavigate();
-  const [signupData, setSignupData] = useState({
+  const [userData, setUserData] = useState({
     userId: "",
     userPassword: "",
     userName: "",
@@ -15,12 +15,39 @@ export default function Signup() {
     userPhone: "",
   });
 
-  const handleInputChange = (e) => {
-    setSignupData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  const getUserData = async () => {
+    const fetchedUserData = await (
+      await axios.get(`/user/profile`, { withCredentials: true })
+    ).data.data;
+
+    setUserData({
+      userId: fetchedUserData.user_id,
+      userName: fetchedUserData.user_name,
+      userNickname: fetchedUserData.user_nickname,
+      userPhone: fetchedUserData.user_phone,
+    });
   };
 
-  const handleButtonClick = async () => {
-    await axios.post(`/user/signup`, signupData);
+  useEffect(() => {
+    getUserData();
+  }, []);
+
+  const handleInputChange = (e) => {
+    setUserData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSignoutButtonClick = async () => {
+    await axios.get(`/user/signout`, { withCredentials: true });
+    navigate(`/`);
+  };
+
+  const handleModifyButtonClick = async () => {
+    await axios.post(`/user/profile`, userData, { withCredentials: true });
+    navigate(`/`);
+  };
+
+  const handleUserDeleteButtonClick = async () => {
+    await axios.delete(`/user/deleteuser`, { withCredentials: true });
     navigate(`/`);
   };
 
@@ -31,6 +58,7 @@ export default function Signup() {
         type="text"
         id="userId"
         name="userId"
+        value={userData.userId}
         onChange={handleInputChange}
       />
       <label for="userPassword">비밀번호</label>
@@ -45,6 +73,7 @@ export default function Signup() {
         type="text"
         id="userNickname"
         name="userNickname"
+        value={userData.userNickname}
         onChange={handleInputChange}
       />
 
@@ -53,6 +82,7 @@ export default function Signup() {
         type="text"
         id="userName"
         name="userName"
+        value={userData.userName}
         onChange={handleInputChange}
       />
       <label for="userPhone">전화번호</label>
@@ -60,10 +90,14 @@ export default function Signup() {
         type="text"
         id="userPhone"
         name="userPhone"
+        value={userData.userPhone}
         onChange={handleInputChange}
       />
+
       <ButtonWrapper>
-        <Button onClick={handleButtonClick}>회원가입</Button>
+        <Button onClick={handleModifyButtonClick}>정보수정</Button>
+        <Button onClick={handleSignoutButtonClick}>로그아웃</Button>
+        <Button onClick={handleUserDeleteButtonClick}>회원탈퇴</Button>
       </ButtonWrapper>
     </Layout>
   );

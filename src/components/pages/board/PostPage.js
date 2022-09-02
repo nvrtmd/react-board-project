@@ -5,7 +5,7 @@ import styled from "styled-components/macro";
 import { theme } from "../../../styles/theme";
 import Layout from "../../../layout/layout";
 
-export default function Post() {
+export default function PostPage() {
   const navigate = useNavigate();
   const params = useParams();
   const [postData, setPostData] = useState({

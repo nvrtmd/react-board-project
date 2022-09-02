@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Layout from "../../../layout/layout";
 
-export default function List() {
+export default function ListPage() {
   const navigate = useNavigate();
   const [postsData, setPostsData] = useState([]);
 
