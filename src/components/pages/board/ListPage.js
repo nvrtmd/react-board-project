@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Layout from "../../../layout/layout";
+import moment from "moment";
 
 export default function ListPage() {
   const navigate = useNavigate();
@@ -44,7 +45,9 @@ export default function ListPage() {
                   <td>{data.post_title}</td>
                   <td>{data.post_contents.substr(0, 5) + "..."}</td>
                   <td>{data.post_views}</td>
-                  <td>{data.post_register_date}</td>
+                  <td>
+                    {moment(data.post_register_date).format("YY-MM-DD HH:mm")}
+                  </td>
                   <td>{data.post_register_user_name}</td>
                 </tr>
               ))}
