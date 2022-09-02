@@ -23,14 +23,14 @@ export default function SigninPage() {
 
   return (
     <Layout>
-      <label for="userId">아이디</label>
+      <label htmlFor="userId">아이디</label>
       <input
         type="text"
         id="userId"
         name="userId"
         onChange={handleInputChange}
       />
-      <label for="userPassword">비밀번호</label>
+      <label htmlFor="userPassword">비밀번호</label>
       <input
         type="password"
         id="userPassword"

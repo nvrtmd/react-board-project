@@ -53,7 +53,7 @@ export default function ProfilePage() {
 
   return (
     <Layout>
-      <label for="userId">아이디</label>
+      <label htmlFor="userId">아이디</label>
       <input
         type="text"
         id="userId"
@@ -61,14 +61,14 @@ export default function ProfilePage() {
         value={userData.userId}
         onChange={handleInputChange}
       />
-      <label for="userPassword">비밀번호</label>
+      <label htmlFor="userPassword">비밀번호</label>
       <input
         type="password"
         id="userPassword"
         name="userPassword"
         onChange={handleInputChange}
       />
-      <label for="userName">닉네임</label>
+      <label htmlFor="userName">닉네임</label>
       <input
         type="text"
         id="userNickname"
@@ -77,7 +77,7 @@ export default function ProfilePage() {
         onChange={handleInputChange}
       />
 
-      <label for="userName">이름</label>
+      <label htmlFor="userName">이름</label>
       <input
         type="text"
         id="userName"
@@ -85,7 +85,7 @@ export default function ProfilePage() {
         value={userData.userName}
         onChange={handleInputChange}
       />
-      <label for="userPhone">전화번호</label>
+      <label htmlFor="userPhone">전화번호</label>
       <input
         type="text"
         id="userPhone"

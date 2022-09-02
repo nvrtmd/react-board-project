@@ -41,7 +41,14 @@ export default function ModifyPage() {
   };
 
   const handleModifyButtonClick = async () => {
-    console.log("modified");
+    setPostData((prev) => ({
+      ...prev,
+      postDisplay: prev.postDisplay === "true" ? 1 : 0,
+    }));
+    await axios.post(`/board/modify/${postData.postId}`, postData, {
+      withCredentials: true,
+    });
+    navigate(`/board/${postData.postId}`);
   };
 
   return (
