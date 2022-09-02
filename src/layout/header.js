@@ -13,7 +13,7 @@ export default function Header() {
     if (getDataFromLocalStorage("isSignedin").length) return;
     const isSignedinUser = async () => {
       try {
-        const userData = await axios.get(`/user/profile`, {
+        await axios.get(`/user/profile`, {
           withCredentials: true,
         });
         saveDataToLocalStorage("isSignedin", true);
@@ -32,12 +32,22 @@ export default function Header() {
           BOARD
         </ClickableText>
         <AuthenticationWrapper>
-          <ClickableText onClick={() => navigate("/user/signin")}>
-            SIGN IN
-          </ClickableText>
-          <ClickableText onClick={() => navigate("/user/signup")}>
-            SIGN UP
-          </ClickableText>
+          {getDataFromLocalStorage("isSignedin") === true ? (
+            <>
+              <ClickableText onClick={() => navigate("/user/profile")}>
+                PROFILE
+              </ClickableText>
+            </>
+          ) : (
+            <>
+              <ClickableText onClick={() => navigate("/user/signin")}>
+                SIGN IN
+              </ClickableText>
+              <ClickableText onClick={() => navigate("/user/signup")}>
+                SIGN UP
+              </ClickableText>
+            </>
+          )}
         </AuthenticationWrapper>
       </HeaderWrapper>
     </HeaderContainer>
