@@ -23,12 +23,33 @@ export default function ListPage() {
 
   return (
     <Layout>
-      {postsData &&
-        postsData.map((data) => (
-          <div key={data.post_id} onClick={() => moveToPost(data.post_id)}>
-            {data.post_title}
-          </div>
-        ))}
+      <table>
+        <thead>
+          <tr>
+            <th>Index</th>
+            <th>Title</th>
+            <th>Contents</th>
+            <th>Views</th>
+            <th>Date</th>
+            <th>Writer</th>
+          </tr>
+        </thead>
+        <tbody>
+          {postsData &&
+            postsData
+              .filter((data) => data.post_display)
+              .map((data) => (
+                <tr key={data.post_id} onClick={() => moveToPost(data.post_id)}>
+                  <td>{data.post_id}</td>
+                  <td>{data.post_title}</td>
+                  <td>{data.post_contents.substr(0, 5) + "..."}</td>
+                  <td>{data.post_views}</td>
+                  <td>{data.post_register_date}</td>
+                  <td>{data.post_register_user_name}</td>
+                </tr>
+              ))}
+        </tbody>
+      </table>
     </Layout>
   );
 }
