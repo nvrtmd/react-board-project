@@ -69,6 +69,7 @@ export default function CreatePage() {
 
       <ButtonWrapper>
         <Button onClick={handleCreateButtonClick}>작성</Button>
+        <Button onClick={() => navigate("/board/list")}>취소</Button>
       </ButtonWrapper>
     </Layout>
   );

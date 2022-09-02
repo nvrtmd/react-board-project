@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components/macro";
+import moment from "moment";
 import { theme } from "../../../styles/theme";
 import Layout from "../../../layout/layout";
 
@@ -13,6 +14,7 @@ export default function PostPage() {
     postTitle: "",
     postContents: "",
     postRegisterUserName: "",
+    postRegisterDate: "",
     postViews: null,
     postDisplay: null,
   });
@@ -28,6 +30,7 @@ export default function PostPage() {
         postTitle: fetchedPostData.post_title,
         postContents: fetchedPostData.post_contents,
         postRegisterUserName: fetchedPostData.post_register_user_name,
+        postRegisterDate: fetchedPostData.post_register_date,
         postViews: fetchedPostData.post_views,
         postDisplay: fetchedPostData.post_display,
       });
@@ -65,29 +68,76 @@ export default function PostPage() {
 
   return (
     <Layout>
-      <div>{postData.postTitle}</div>
-      <div>{postData.postContents}</div>
-      <div>{postData.postRegisterUserName}</div>
-      <div>{postData.postViews}</div>
-      <div>{postData.postDisplay}</div>
-      <ButtonWrapper>
-        <Button onClick={handleModifyButtonClick}>수정</Button>
-        <Button onClick={handleDeleteButtonClick}>삭제</Button>
-        <Button onClick={() => navigate("/board/list")}>목록</Button>
-      </ButtonWrapper>
+      <PostContainer>
+        <PostWrapper>
+          <PostHeader>
+            <PostTitle>{postData.postTitle}</PostTitle>
+            <PostRegisterUserName>
+              posted by {postData.postRegisterUserName}
+            </PostRegisterUserName>
+            <PostRegisterDate>
+              <div>
+                {postData.postRegisterDate &&
+                  moment(postData.postRegisterDate).format("YY-MM-DD HH:mm")}
+              </div>
+              <div>views {postData.postViews}</div>
+            </PostRegisterDate>
+          </PostHeader>
+          <PostBody>{postData.postContents} </PostBody>
+        </PostWrapper>
+        <ButtonWrapper>
+          <Button onClick={handleModifyButtonClick}>수정</Button>
+          <Button onClick={handleDeleteButtonClick}>삭제</Button>
+          <Button onClick={() => navigate("/board/list")}>목록</Button>
+        </ButtonWrapper>
+      </PostContainer>
     </Layout>
   );
 }
+const PostContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+`;
+
+const PostWrapper = styled.div`
+  height: auto;
+`;
+
+const PostHeader = styled.div`
+  border-bottom: 1px solid black;
+  padding-bottom: 0.5rem;
+`;
+
+const PostTitle = styled.div`
+  font-size: 2.5rem;
+`;
+const PostRegisterUserName = styled.div`
+  font-size: 1.25rem;
+`;
+const PostRegisterDate = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 35%;
+  font-size: 1rem;
+`;
+
+const PostBody = styled.div`
+  padding: 2rem 0;
+`;
+
 const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  width: 40%;
+  margin: 0 auto;
 `;
 
 const Button = styled.div`
   background: ${theme.color.lightPurple};
-  width: 20%;
-  padding: 1rem 0px;
+  padding: 1rem 1.5rem;
   border-radius: 15px;
   display: flex;
   align-items: center;

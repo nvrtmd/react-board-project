@@ -19,6 +19,7 @@ const Main = styled.main`
   width: 90%;
   height: 90%;
   border-radius: 30px;
+  padding: 2rem 1rem;
 `;
 
 export default Layout;
