@@ -17,7 +17,7 @@ export default function Signin() {
   };
 
   const handleButtonClick = async () => {
-    await axios.post(`/user/signin`, signinData);
+    await axios.post(`/user/signin`, signinData, { withCredentials: true });
     navigate(`/profile`);
   };
 
