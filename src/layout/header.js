@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components/macro";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -25,6 +25,12 @@ export default function Header() {
     isSignedinUser();
   }, []);
 
+  const handleSignoutButtonClick = async () => {
+    await axios.get(`/user/signout`, { withCredentials: true });
+    saveDataToLocalStorage("isSignedin", false);
+    navigate(`/board/list`);
+  };
+
   return (
     <HeaderContainer>
       <HeaderWrapper>
@@ -36,6 +42,9 @@ export default function Header() {
             <>
               <ClickableText onClick={() => navigate("/user/profile")}>
                 PROFILE
+              </ClickableText>
+              <ClickableText onClick={handleSignoutButtonClick}>
+                SIGN OUT
               </ClickableText>
             </>
           ) : (
