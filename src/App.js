@@ -8,10 +8,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Board />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/board" element={<Board />} />
+        <Route path="/board/:postId" element={<Board />} />
+        <Route path="/user/signup" element={<Signup />} />
+        <Route path="/user/signin" element={<Signin />} />
+        <Route path="/user/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   );

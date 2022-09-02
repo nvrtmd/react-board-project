@@ -15,7 +15,7 @@ export default function Board() {
     <Layout>
       {postsData &&
         postsData.map((data, index) => (
-          <div key={index}>{data.post_title}</div>
+          <div key={data.post_id}>{data.post_title}</div>
         ))}
     </Layout>
   );
