@@ -9,6 +9,7 @@ export default function Profile() {
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
     userId: "",
+    userPassword: "",
     userName: "",
     userNickname: "",
     userPhone: "",
@@ -31,8 +32,17 @@ export default function Profile() {
     getUserData();
   }, []);
 
+  const handleInputChange = (e) => {
+    setUserData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
   const handleSignoutButtonClick = async () => {
     await axios.get(`/user/signout`, { withCredentials: true });
+    navigate(`/`);
+  };
+
+  const handleModifyButtonClick = async () => {
+    await axios.post(`/user/profile`, userData, { withCredentials: true });
     navigate(`/`);
   };
 
@@ -43,11 +53,49 @@ export default function Profile() {
 
   return (
     <Layout>
-      <div>아이디: {userData.userId}</div>
-      <div>이름: {userData.userName}</div>
-      <div>닉네임: {userData.userNickname}</div>
-      <div>전화번호: {userData.userPhone}</div>
+      <label for="userId">아이디</label>
+      <input
+        type="text"
+        id="userId"
+        name="userId"
+        value={userData.userId}
+        onChange={handleInputChange}
+      />
+      <label for="userPassword">비밀번호</label>
+      <input
+        type="password"
+        id="userPassword"
+        name="userPassword"
+        onChange={handleInputChange}
+      />
+      <label for="userName">닉네임</label>
+      <input
+        type="text"
+        id="userNickname"
+        name="userNickname"
+        value={userData.userNickname}
+        onChange={handleInputChange}
+      />
+
+      <label for="userName">이름</label>
+      <input
+        type="text"
+        id="userName"
+        name="userName"
+        value={userData.userName}
+        onChange={handleInputChange}
+      />
+      <label for="userPhone">전화번호</label>
+      <input
+        type="text"
+        id="userPhone"
+        name="userPhone"
+        value={userData.userPhone}
+        onChange={handleInputChange}
+      />
+
       <ButtonWrapper>
+        <Button onClick={handleModifyButtonClick}>정보수정</Button>
         <Button onClick={handleSignoutButtonClick}>로그아웃</Button>
         <Button onClick={handleUserDeleteButtonClick}>회원탈퇴</Button>
       </ButtonWrapper>
