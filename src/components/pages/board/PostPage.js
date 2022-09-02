@@ -12,6 +12,7 @@ export default function PostPage() {
     postId: null,
     postTitle: "",
     postContents: "",
+    postRegisterUserName: "",
     postViews: null,
     postDisplay: null,
   });
@@ -26,6 +27,7 @@ export default function PostPage() {
         postId: fetchedPostData.post_id,
         postTitle: fetchedPostData.post_title,
         postContents: fetchedPostData.post_contents,
+        postRegisterUserName: fetchedPostData.post_register_user_name,
         postViews: fetchedPostData.post_views,
         postDisplay: fetchedPostData.post_display,
       });
@@ -49,6 +51,7 @@ export default function PostPage() {
     <Layout>
       <div>{postData.postTitle}</div>
       <div>{postData.postContents}</div>
+      <div>{postData.postRegisterUserName}</div>
       <div>{postData.postViews}</div>
       <div>{postData.postDisplay}</div>
       <ButtonWrapper>

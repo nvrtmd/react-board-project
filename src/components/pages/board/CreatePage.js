@@ -10,7 +10,7 @@ export default function CreatePage() {
   const [newPostData, setNewPostData] = useState({
     postTitle: "",
     postContents: "",
-    postDisplay: true,
+    postDisplay: "true",
     postRegisterUserName: "",
   });
 
@@ -38,7 +38,12 @@ export default function CreatePage() {
   };
 
   const handleCreateButtonClick = async () => {
-    navigate(`/`);
+    setNewPostData((prev) => ({
+      ...prev,
+      postDisplay: prev.postDisplay === "true" ? 1 : 0,
+    }));
+    await axios.post(`/board/create`, newPostData, { withCredentials: true });
+    navigate(`/board/list`);
   };
 
   return (

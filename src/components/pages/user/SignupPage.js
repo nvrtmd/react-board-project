@@ -21,7 +21,7 @@ export default function SignupPage() {
 
   const handleButtonClick = async () => {
     await axios.post(`/user/signup`, signupData);
-    navigate(`/`);
+    navigate(`/user/signin`);
   };
 
   return (
