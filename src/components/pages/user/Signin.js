@@ -33,7 +33,7 @@ export default function Signin() {
     await axios.post(`/user/signin`, signinData, { withCredentials: true });
     // const data = postUserData();
     // console.log(data);
-    // navigate(`/`);
+    navigate(`/profile`);
   };
 
   return (
