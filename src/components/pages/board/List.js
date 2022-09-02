@@ -3,15 +3,18 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Layout from "../../../layout/layout";
 
-export default function Board() {
+export default function List() {
   const navigate = useNavigate();
   const [postsData, setPostsData] = useState([]);
 
+  const getPostsData = async () => {
+    const fetchedPostsData = await (await axios.get(`/board/list`)).data.data;
+
+    setPostsData(fetchedPostsData);
+  };
+
   useEffect(() => {
-    axios
-      .get(`/board/list`)
-      .then((res) => setPostsData(res.data.data))
-      .catch((err) => {});
+    getPostsData();
   }, []);
 
   const moveToPost = (postId) => {

@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Board from "./components/pages/board/Board";
+import List from "./components/pages/board/List";
 import Signup from "./components/pages/user/Signup";
 import Signin from "./components/pages/user/Signin";
 import Profile from "./components/pages/user/Profile";
@@ -9,7 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/board" element={<Board />} />
+        <Route path="/board/list" element={<List />} />
         <Route path="/board/:postId" element={<Post />} />
         <Route path="/user/signup" element={<Signup />} />
         <Route path="/user/signin" element={<Signin />} />
