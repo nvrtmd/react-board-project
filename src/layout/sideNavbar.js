@@ -2,6 +2,11 @@ import React from "react";
 import styled from "styled-components/macro";
 
 export default function SideNavbar() {
+  const isClicked = (buttonName) => {
+    const basePath = window.location.pathname.split("/")[1];
+    return buttonName.toLowerCase() === basePath;
+  };
+
   return (
     <SideNavbarWrapper>
       <ProfileWrapper>
@@ -9,8 +14,8 @@ export default function SideNavbar() {
         {/* <Profile>로그인이 필요합니다.</Profile> */}
       </ProfileWrapper>
       <MenuWrapper>
-        <Menu>Board</Menu>
-        <Menu>User Dashboard</Menu>
+        <Menu isClicked={isClicked("board")}>Board</Menu>
+        <Menu isClicked={isClicked("user")}>User Dashboard</Menu>
       </MenuWrapper>
     </SideNavbarWrapper>
   );
@@ -39,5 +44,14 @@ const Menu = styled.div`
   cursor: pointer;
   background-color: brown;
   padding: 2rem 1.5rem;
-  border-left: 5px solid lime;
+  ${({ isClicked }) =>
+    isClicked &&
+    `background-color: red; !important;
+    border-left: 5px solid lime;
+`}
+  &:hover {
+    background-color: red;
+    border-left: 5px solid lime;
+    transition: all 0.3s ease 0s;
+  }
 `;
