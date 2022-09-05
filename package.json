@@ -8,14 +8,14 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "moment": "^2.29.4",
+    "nth-check": ">=2.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
     "styled-components": "^5.3.5",
     "styled-components.macro": "^1.0.0",
     "styled-reset": "^4.4.2",
-    "web-vitals": "^2.1.4",
-    "nth-check": ">=2.0.1"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",

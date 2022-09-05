@@ -1,11 +1,11 @@
 import styled from "styled-components/macro";
 import { theme } from "../styles/theme";
 import Header from "./header";
-import SideNavbar from "./sideNavbar";
+import SideNavbar, { MemoizedSideNavbar } from "./sideNavbar";
 
 const Layout = (props) => (
   <Container>
-    <SideNavbar />
+    <MemoizedSideNavbar />
     <Wrapper>
       <Header />
       <Main>{props.children}</Main>

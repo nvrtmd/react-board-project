@@ -21,6 +21,8 @@ export default function SideNavbar() {
   );
 }
 
+export const MemoizedSideNavbar = React.memo(SideNavbar);
+
 const SideNavbarWrapper = styled.div`
   width: 20%;
   max-width: 300px;
