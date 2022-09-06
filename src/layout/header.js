@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components/macro";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -9,21 +9,9 @@ import saveDataToLocalStorage from "../utils/saveDataToLocalStorage";
 function Header() {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (getDataFromLocalStorage("isSignedin").length) return;
-    const isSignedinUser = async () => {
-      try {
-        await axios.get(`/user/profile`, {
-          withCredentials: true,
-        });
-        saveDataToLocalStorage("isSignedin", true);
-      } catch {
-        saveDataToLocalStorage("isSignedin", false);
-      }
-    };
-
-    isSignedinUser();
-  }, []);
+  const isSignedin = () => {
+    return getDataFromLocalStorage("isSignedin") === true;
+  };
 
   const handleSignoutButtonClick = async () => {
     await axios.get(`/user/signout`, { withCredentials: true });
@@ -38,7 +26,7 @@ function Header() {
           BOARD
         </ClickableText>
         <AuthenticationWrapper>
-          {getDataFromLocalStorage("isSignedin") === true ? (
+          {isSignedin() ? (
             <>
               <ClickableText onClick={() => navigate("/user/profile")}>
                 PROFILE
