@@ -6,7 +6,7 @@ import { theme } from "../styles/theme";
 import getDataFromLocalStorage from "../utils/getDataFromLocalStorage";
 import saveDataToLocalStorage from "../utils/saveDataToLocalStorage";
 
-export default function Header() {
+function Header() {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -82,3 +82,5 @@ const AuthenticationWrapper = styled.div`
 const ClickableText = styled.div`
   cursor: pointer;
 `;
+
+export default React.memo(Header);

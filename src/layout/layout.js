@@ -1,11 +1,12 @@
+import React from "react";
 import styled from "styled-components/macro";
 import { theme } from "../styles/theme";
 import Header from "./header";
-import SideNavbar, { MemoizedSideNavbar } from "./sideNavbar";
+import SideNavbar from "./sideNavbar";
 
 const Layout = (props) => (
   <Container>
-    <MemoizedSideNavbar />
+    <SideNavbar />
     <Wrapper>
       <Header />
       <Main>{props.children}</Main>

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-export default function SideNavbar() {
+function SideNavbar() {
   const isClicked = (buttonName) => {
     const basePath = window.location.pathname.split("/")[1];
     return buttonName.toLowerCase() === basePath;
@@ -20,8 +20,6 @@ export default function SideNavbar() {
     </SideNavbarWrapper>
   );
 }
-
-export const MemoizedSideNavbar = React.memo(SideNavbar);
 
 const SideNavbarWrapper = styled.div`
   width: 20%;
@@ -57,3 +55,5 @@ const Menu = styled.div`
     transition: all 0.3s ease 0s;
   }
 `;
+
+export default React.memo(SideNavbar);
