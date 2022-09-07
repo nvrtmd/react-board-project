@@ -4,7 +4,6 @@ import Layout from "../../../layout/layout";
 import styled from "styled-components/macro";
 import { theme } from "../../../styles/theme";
 import { useNavigate } from "react-router-dom";
-import saveDataToLocalStorage from "../../../utils/saveDataToLocalStorage";
 
 export default function ProfilePage() {
   const navigate = useNavigate();
@@ -39,7 +38,6 @@ export default function ProfilePage() {
 
   const handleSignoutButtonClick = async () => {
     await axios.get(`/user/signout`, { withCredentials: true });
-    saveDataToLocalStorage("isSignedin", false);
     navigate(`/board/list`);
   };
 
@@ -50,7 +48,6 @@ export default function ProfilePage() {
 
   const handleUserDeleteButtonClick = async () => {
     await axios.delete(`/user/deleteuser`, { withCredentials: true });
-    saveDataToLocalStorage("isSignedin", false);
     navigate(`/board/list`);
   };
 

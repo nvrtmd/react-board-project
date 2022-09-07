@@ -1,22 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components/macro";
 import axios from "axios";
 import { theme } from "../styles/theme";
 import Header from "./header";
 import SideNavbar from "./sideNavbar";
-import getDataFromLocalStorage from "../utils/getDataFromLocalStorage";
-import saveDataToLocalStorage from "../utils/saveDataToLocalStorage";
 
 const Layout = (props) => {
+  const [isSignedin, setIsSignedin] = useState(false);
+
   useEffect(() => {
     const isSignedinUser = async () => {
       try {
         await axios.get(`/user/profile`, {
           withCredentials: true,
         });
-        saveDataToLocalStorage("isSignedin", true);
+        setIsSignedin(true);
       } catch {
-        saveDataToLocalStorage("isSignedin", false);
+        setIsSignedin(false);
       }
     };
 
@@ -27,7 +27,7 @@ const Layout = (props) => {
     <Container>
       <SideNavbar />
       <Wrapper>
-        <Header />
+        <Header isSignedin={isSignedin} />
         <Main>{props.children}</Main>
       </Wrapper>
     </Container>

@@ -4,7 +4,6 @@ import styled from "styled-components/macro";
 import axios from "axios";
 import Layout from "../../../layout/layout";
 import { theme } from "../../../styles/theme";
-import saveDataToLocalStorage from "../../../utils/saveDataToLocalStorage";
 
 export default function SigninPage() {
   const navigate = useNavigate();
@@ -20,7 +19,6 @@ export default function SigninPage() {
   const handleButtonClick = async () => {
     try {
       await axios.post(`/user/signin`, signinData, { withCredentials: true });
-      saveDataToLocalStorage("isSignedin", true);
       navigate(`/board/list`);
     } catch {
       alert("아이디 또는 비밀번호가 일치하지 않습니다.");

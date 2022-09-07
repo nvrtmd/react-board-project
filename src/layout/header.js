@@ -3,19 +3,12 @@ import styled from "styled-components/macro";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { theme } from "../styles/theme";
-import getDataFromLocalStorage from "../utils/getDataFromLocalStorage";
-import saveDataToLocalStorage from "../utils/saveDataToLocalStorage";
 
-function Header() {
+function Header({ isSignedin }) {
   const navigate = useNavigate();
-
-  const isSignedin = () => {
-    return getDataFromLocalStorage("isSignedin") === true;
-  };
 
   const handleSignoutButtonClick = async () => {
     await axios.get(`/user/signout`, { withCredentials: true });
-    saveDataToLocalStorage("isSignedin", false);
     navigate(`/board/list`);
   };
 
@@ -26,7 +19,7 @@ function Header() {
           BOARD
         </ClickableText>
         <AuthenticationWrapper>
-          {isSignedin() ? (
+          {isSignedin ? (
             <>
               <ClickableText onClick={() => navigate("/user/profile")}>
                 PROFILE
