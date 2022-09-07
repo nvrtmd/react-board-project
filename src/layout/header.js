@@ -3,6 +3,7 @@ import styled from "styled-components/macro";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { theme } from "../styles/theme";
+import headerLogoImage from "../assets/header_logo.png";
 
 function Header({ isSignedin }) {
   const navigate = useNavigate();
@@ -15,9 +16,12 @@ function Header({ isSignedin }) {
   return (
     <HeaderContainer>
       <HeaderWrapper>
-        <ClickableText onClick={() => navigate("/board/list")}>
-          BOARD
-        </ClickableText>
+        <HeaderLogo
+          src={headerLogoImage}
+          alt=""
+          onClick={() => navigate("/board/list")}
+        />
+
         <AuthenticationWrapper>
           {isSignedin ? (
             <>
@@ -45,15 +49,24 @@ function Header({ isSignedin }) {
 }
 
 const HeaderContainer = styled.div`
-  padding: 1rem;
-  background-color: ${theme.color.primary};
-  color: ${theme.color.white};
+  display: flex;
+  align-items: center;
   height: ${theme.layout.headerHeight};
+  padding: 1rem;
+  border-bottom: 2px solid ${theme.color.grey};
 `;
 
 const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
+`;
+
+const HeaderLogo = styled.img`
+  width: 4rem;
+  border-radius: 20%;
+  cursor: pointer;
 `;
 
 const AuthenticationWrapper = styled.div`
@@ -64,6 +77,10 @@ const AuthenticationWrapper = styled.div`
 
 const ClickableText = styled.div`
   cursor: pointer;
+  &:hover {
+    color: ${theme.color.lightPurple};
+    transition: all 0.3s ease;
+  }
 `;
 
 export default React.memo(Header);
