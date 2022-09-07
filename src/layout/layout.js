@@ -24,35 +24,23 @@ const Layout = (props) => {
   }, []);
 
   return (
-    <Container>
-      <SideNavbar />
-      <Wrapper>
-        <Header isSignedin={isSignedin} />
-        <Main>{props.children}</Main>
-      </Wrapper>
-    </Container>
+    <>
+      <Header isSignedin={isSignedin} />
+      <Main>
+        <SideNavbar />
+        <Wrapper>{props.children}</Wrapper>
+      </Main>
+    </>
   );
 };
 
-const Container = styled.div`
+const Main = styled.main`
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: red;
-  overflow: auto;
+  min-height: calc(100vh - ${theme.layout.headerHeight});
 `;
 
 const Wrapper = styled.div`
-  height: 100%;
-  width: 90%;
-  background-color: grey;
-`;
-
-const Main = styled.main`
-  background-color: ${theme.color.secondary};
-  padding: 2rem 1rem;
-  min-height: calc(100vh - ${theme.layout.headerHeight});
+  padding: 3rem 0.5rem;
 `;
 
 export default Layout;

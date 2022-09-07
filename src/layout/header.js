@@ -46,7 +46,8 @@ function Header({ isSignedin }) {
 
 const HeaderContainer = styled.div`
   padding: 1rem;
-  color: ${theme.color.grey};
+  background-color: ${theme.color.primary};
+  color: ${theme.color.white};
   height: ${theme.layout.headerHeight};
 `;
 

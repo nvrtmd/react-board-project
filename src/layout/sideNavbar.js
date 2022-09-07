@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
+import { theme } from "../styles/theme";
 
 function SideNavbar() {
   const isClicked = (buttonName) => {
@@ -23,9 +24,8 @@ function SideNavbar() {
 
 const SideNavbarWrapper = styled.div`
   width: 23%;
-  max-width: 300px;
-  height: 100%;
-  background-color: yellow;
+  max-width: 200px;
+  background-color: ${theme.color.secondary};
 `;
 
 const ProfileWrapper = styled.div`
