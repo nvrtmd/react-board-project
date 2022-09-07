@@ -7,13 +7,15 @@ import SideNavbar from "./sideNavbar";
 
 const Layout = (props) => {
   const [isSignedin, setIsSignedin] = useState(false);
+  const [signedinUserName, setSignedinUserName] = useState("");
 
   useEffect(() => {
     const isSignedinUser = async () => {
       try {
-        await axios.get(`/user/profile`, {
+        const signedinUserData = await axios.get(`/user/profile`, {
           withCredentials: true,
         });
+        setSignedinUserName(signedinUserData.data.data.user_nickname);
         setIsSignedin(true);
       } catch {
         setIsSignedin(false);
@@ -27,7 +29,10 @@ const Layout = (props) => {
     <>
       <Header isSignedin={isSignedin} />
       <Main>
-        <SideNavbar isSignedin={isSignedin} />
+        <SideNavbar
+          isSignedin={isSignedin}
+          signedinUserName={signedinUserName}
+        />
         <Wrapper>{props.children}</Wrapper>
       </Main>
     </>

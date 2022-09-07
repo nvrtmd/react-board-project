@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 import { useNavigate } from "react-router-dom";
 import { theme } from "../styles/theme";
 
-function SideNavbar({ isSignedin }) {
+function SideNavbar({ isSignedin, signedinUserName }) {
   const navigate = useNavigate();
 
   const isClicked = (tabName) => {
@@ -20,7 +20,10 @@ function SideNavbar({ isSignedin }) {
     <SideNavbarWrapper>
       <ProfileWrapper>
         {isSignedin ? (
-          <Profile>안녕하세요, User 님!</Profile>
+          <Profile>
+            안녕하세요, <br />
+            {signedinUserName}님!
+          </Profile>
         ) : (
           <Profile>로그인이 필요합니다.</Profile>
         )}
