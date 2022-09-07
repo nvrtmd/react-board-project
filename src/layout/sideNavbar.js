@@ -46,11 +46,12 @@ function SideNavbar({ isSignedin }) {
 const SideNavbarWrapper = styled.div`
   width: 23%;
   max-width: 200px;
-  background-color: ${theme.color.secondary};
+  background-color: ${theme.color.lightPurple};
 `;
 
 const ProfileWrapper = styled.div`
-  background-color: green;
+  background-color: ${theme.color.primary};
+  color: ${theme.color.grey};
   padding: 3.5rem 1.5rem;
   font-size: 1rem;
 `;
@@ -58,21 +59,20 @@ const ProfileWrapper = styled.div`
 const Profile = styled.div``;
 
 const TabWrapper = styled.div`
-  background-color: lime;
+  font-size: 1.2rem;
 `;
 
 const Tab = styled.div`
   cursor: pointer;
-  background-color: brown;
   padding: 2rem 1.5rem;
   ${({ isClicked }) =>
     isClicked &&
-    `background-color: red; !important;
-    border-left: 5px solid lime;
+    `background-color: ${theme.color.secondary}; !important;
+    border-left: 5px solid ${theme.color.primary};
 `}
   &:hover {
-    background-color: red;
-    border-left: 5px solid lime;
+    background-color: ${theme.color.secondary};
+    border-left: 5px solid ${theme.color.primary};
     transition: all 0.3s ease 0s;
   }
 `;

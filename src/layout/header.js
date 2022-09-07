@@ -52,7 +52,7 @@ const HeaderContainer = styled.div`
   align-items: center;
   height: ${theme.layout.headerHeight};
   padding: 1rem;
-  border-bottom: 2px solid ${theme.color.grey};
+  background-color: ${theme.color.lightPurple};
 `;
 
 const HeaderWrapper = styled.div`
@@ -77,7 +77,7 @@ const AuthenticationWrapper = styled.div`
 const ClickableText = styled.div`
   cursor: pointer;
   &:hover {
-    color: ${theme.color.lightPurple};
+    color: ${theme.color.secondary};
     transition: all 0.3s ease;
   }
 `;
