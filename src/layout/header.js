@@ -25,19 +25,19 @@ function Header({ isSignedin }) {
           {isSignedin ? (
             <>
               <ClickableText onClick={() => navigate("/user/profile")}>
-                PROFILE
+                Profile
               </ClickableText>
               <ClickableText onClick={handleSignoutButtonClick}>
-                SIGN OUT
+                Sign out
               </ClickableText>
             </>
           ) : (
             <>
               <ClickableText onClick={() => navigate("/user/signin")}>
-                SIGN IN
+                Sign in
               </ClickableText>
               <ClickableText onClick={() => navigate("/user/signup")}>
-                SIGN UP
+                Sign up
               </ClickableText>
             </>
           )}

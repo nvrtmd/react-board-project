@@ -5,6 +5,7 @@ import styled from "styled-components/macro";
 import { theme } from "../../../styles/theme";
 import Layout from "../../../layout/layout";
 import moment from "moment";
+import Button from "../../global/Button";
 
 export default function ListPage() {
   const navigate = useNavigate();
@@ -27,7 +28,11 @@ export default function ListPage() {
   return (
     <Layout>
       <ButtonWrapper>
-        <Button onClick={() => navigate("/board/create")}>게시글 작성</Button>
+        <Button
+          handleClick={() => navigate("/board/create")}
+          buttonName="Write"
+        />
+        {/* <Button onClick={() => navigate("/board/create")}>게시글 작성</Button> */}
       </ButtonWrapper>
       <TableWrapper>
         <table>
@@ -87,20 +92,4 @@ const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
-
-const Button = styled.div`
-  background: ${theme.color.lightPurple};
-  width: 20%;
-  padding: 1rem 0px;
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  &:hover {
-    background: ${theme.color.primary};
-  }
 `;
