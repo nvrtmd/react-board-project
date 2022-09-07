@@ -21,7 +21,6 @@ function Header({ isSignedin }) {
           alt=""
           onClick={() => navigate("/board/list")}
         />
-
         <AuthenticationWrapper>
           {isSignedin ? (
             <>

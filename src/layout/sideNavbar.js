@@ -1,23 +1,44 @@
 import React from "react";
 import styled from "styled-components/macro";
+import { useNavigate } from "react-router-dom";
 import { theme } from "../styles/theme";
 
-function SideNavbar() {
-  const isClicked = (buttonName) => {
+function SideNavbar({ isSignedin }) {
+  const navigate = useNavigate();
+
+  const isClicked = (tabName) => {
     const basePath = window.location.pathname.split("/")[1];
-    return buttonName.toLowerCase() === basePath;
+    if (tabName === basePath) {
+      if (basePath === "user") {
+        return window.location.pathname === "/user/list";
+      }
+      return true;
+    }
   };
 
   return (
     <SideNavbarWrapper>
       <ProfileWrapper>
-        <Profile>안녕하세요, User 님!</Profile>
-        {/* <Profile>로그인이 필요합니다.</Profile> */}
+        {isSignedin ? (
+          <Profile>안녕하세요, User 님!</Profile>
+        ) : (
+          <Profile>로그인이 필요합니다.</Profile>
+        )}
       </ProfileWrapper>
-      <MenuWrapper>
-        <Menu isClicked={isClicked("board")}>Board</Menu>
-        <Menu isClicked={isClicked("user")}>User Dashboard</Menu>
-      </MenuWrapper>
+      <TabWrapper>
+        <Tab
+          isClicked={isClicked("board")}
+          onClick={() => navigate("/board/list")}
+        >
+          Board
+        </Tab>
+        <Tab
+          isClicked={isClicked("user")}
+          onClick={() => navigate("/board/list")}
+        >
+          User Dashboard
+        </Tab>
+      </TabWrapper>
     </SideNavbarWrapper>
   );
 }
@@ -36,11 +57,11 @@ const ProfileWrapper = styled.div`
 
 const Profile = styled.div``;
 
-const MenuWrapper = styled.div`
+const TabWrapper = styled.div`
   background-color: lime;
 `;
 
-const Menu = styled.div`
+const Tab = styled.div`
   cursor: pointer;
   background-color: brown;
   padding: 2rem 1.5rem;

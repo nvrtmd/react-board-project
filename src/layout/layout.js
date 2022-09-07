@@ -27,7 +27,7 @@ const Layout = (props) => {
     <>
       <Header isSignedin={isSignedin} />
       <Main>
-        <SideNavbar />
+        <SideNavbar isSignedin={isSignedin} />
         <Wrapper>{props.children}</Wrapper>
       </Main>
     </>
