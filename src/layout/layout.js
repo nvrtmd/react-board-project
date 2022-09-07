@@ -40,6 +40,7 @@ const Container = styled.div`
   justify-content: center;
   height: 100vh;
   background-color: red;
+  overflow: auto;
 `;
 
 const Wrapper = styled.div`
@@ -50,10 +51,8 @@ const Wrapper = styled.div`
 
 const Main = styled.main`
   background-color: ${theme.color.secondary};
-  border-radius: 30px;
   padding: 2rem 1rem;
-  margin: auto;
-  height: 100%;
+  min-height: calc(100vh - ${theme.layout.headerHeight});
 `;
 
 export default Layout;

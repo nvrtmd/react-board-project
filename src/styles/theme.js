@@ -8,6 +8,11 @@ const color = {
   deepGrey: "#414040",
 };
 
+const layout = {
+  headerHeight: "4.5rem",
+};
+
 export const theme = {
   color,
+  layout,
 };

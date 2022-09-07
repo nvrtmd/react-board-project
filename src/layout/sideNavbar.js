@@ -22,7 +22,7 @@ function SideNavbar() {
 }
 
 const SideNavbarWrapper = styled.div`
-  width: 20%;
+  width: 23%;
   max-width: 300px;
   height: 100%;
   background-color: yellow;
