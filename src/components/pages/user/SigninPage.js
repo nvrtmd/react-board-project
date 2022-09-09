@@ -5,6 +5,7 @@ import axios from "axios";
 import Layout from "../../../layout/layout";
 import { theme } from "../../../styles/theme";
 import Button from "../../global/Button";
+import { ButtonWrapper } from "../board/ListPage";
 
 export default function SigninPage() {
   const navigate = useNavigate();
@@ -70,10 +71,4 @@ const SigninForm = styled.div`
 
 const SigninInput = styled.div`
   padding: 0.3rem 0;
-`;
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;

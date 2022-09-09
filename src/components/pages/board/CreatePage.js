@@ -7,6 +7,7 @@ import { theme } from "../../../styles/theme";
 import Button from "../../global/Button";
 import InputContainer from "../../board/InputContainer";
 import TextInputContainer from "../../board/TextInputContainer";
+import { ButtonWrapper } from "./ListPage";
 
 export default function CreatePage() {
   const navigate = useNavigate();
@@ -115,12 +116,4 @@ const PostTitleWrapper = styled.div`
 const PostContentsWrapper = styled.div`
   height: 25rem;
   margin-bottom: 1rem;
-`;
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 20%;
-  margin: 0 auto;
 `;

@@ -55,9 +55,10 @@ export default function ListPage() {
   );
 }
 
-const ButtonWrapper = styled.div`
+export const ButtonWrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2.5rem;
 `;

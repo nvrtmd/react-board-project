@@ -4,6 +4,7 @@ import axios from "axios";
 import styled from "styled-components/macro";
 import Layout from "../../../layout/layout";
 import Button from "../../global/Button";
+import { ButtonWrapper } from "./ListPage";
 
 export default function ModifyPage() {
   const navigate = useNavigate();
@@ -104,10 +105,4 @@ const PostModifyForm = styled.div`
   display: flex;
   justify-content: center;
   padding: 2rem;
-`;
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;

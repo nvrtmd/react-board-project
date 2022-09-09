@@ -19,4 +19,5 @@ const ButtonBox = styled.div`
     background: ${theme.color.primary};
     color: ${theme.color.white};
   }
+  margin: 0.5rem;
 `;

@@ -5,6 +5,7 @@ import styled from "styled-components/macro";
 import { theme } from "../../../styles/theme";
 import { useNavigate } from "react-router-dom";
 import Button from "../../global/Button";
+import { ButtonWrapper } from "../board/ListPage";
 
 export default function ProfilePage() {
   const navigate = useNavigate();
@@ -133,12 +134,4 @@ const ProfileForm = styled.div`
 
 const ProfileInput = styled.div`
   padding: 0.3rem 0;
-`;
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 45%;
-  margin: 0 auto;
 `;

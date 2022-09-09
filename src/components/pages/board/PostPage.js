@@ -5,6 +5,7 @@ import styled from "styled-components/macro";
 import moment from "moment";
 import Layout from "../../../layout/layout";
 import Button from "../../global/Button";
+import { ButtonWrapper } from "./ListPage";
 
 export default function PostPage() {
   const navigate = useNavigate();
@@ -128,12 +129,4 @@ const PostRegisterDate = styled.div`
 
 const PostBody = styled.div`
   padding: 2rem 0;
-`;
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 75%;
-  margin: 0 auto;
 `;
