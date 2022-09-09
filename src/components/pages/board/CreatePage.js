@@ -6,6 +6,7 @@ import Layout from "../../../layout/layout";
 import { theme } from "../../../styles/theme";
 import Button from "../../global/Button";
 import InputContainer from "../../board/InputContainer";
+import TextInputContainer from "../../board/TextInputContainer";
 
 export default function CreatePage() {
   const navigate = useNavigate();
@@ -51,24 +52,23 @@ export default function CreatePage() {
   return (
     <Layout>
       <PageTitle>CREATE POST</PageTitle>
-      <PostCreateForm>
-        <div>
-          <div>
+      <PostCreateFormWrapper>
+        <PostCreateForm>
+          <PostTitleWrapper>
             <InputContainer
-              placeholder="제목을 입력하세요"
+              title="Title"
+              placeholder="Write title"
               name="postTitle"
               setData={setNewPostData}
             />
-          </div>
-          <div>
-            <label htmlFor="postContents">내용</label>
-            <textarea
+          </PostTitleWrapper>
+          <PostContentsWrapper>
+            <TextInputContainer
+              placeholder="Write Contents"
               name="postContents"
-              rows="20"
-              cols="50"
-              onChange={handleInputChange}
-            ></textarea>
-          </div>
+              setData={setNewPostData}
+            />
+          </PostContentsWrapper>
           <div>
             <select
               id="postDisplay"
@@ -79,8 +79,8 @@ export default function CreatePage() {
               <option value={false}>게시안함</option>
             </select>
           </div>
-        </div>
-      </PostCreateForm>
+        </PostCreateForm>
+      </PostCreateFormWrapper>
 
       <ButtonWrapper>
         <Button handleClick={handleCreateButtonClick} buttonName="Write" />
@@ -97,10 +97,24 @@ const PageTitle = styled.div`
   text-align: center;
 `;
 
-const PostCreateForm = styled.div`
+const PostCreateFormWrapper = styled.div`
   display: flex;
   justify-content: center;
   padding: 2rem;
+`;
+
+const PostCreateForm = styled.div`
+  width: 100%;
+`;
+
+const PostTitleWrapper = styled.div`
+  height: 4.5rem;
+  margin-bottom: 1rem;
+`;
+
+const PostContentsWrapper = styled.div`
+  height: 25rem;
+  margin-bottom: 1rem;
 `;
 
 const ButtonWrapper = styled.div`

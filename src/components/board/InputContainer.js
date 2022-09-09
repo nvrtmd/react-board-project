@@ -1,13 +1,13 @@
 import styled from "styled-components/macro";
 import { theme } from "../../styles/theme";
 
-export default function InputContainer({ name, setData, placeholder }) {
+export default function InputContainer({ title, name, setData, placeholder }) {
   const handleInputChange = (e) => {
     setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
   return (
     <InputWrapper>
-      제목
+      {title}
       <Input
         name={name}
         onChange={(e) => handleInputChange(e)}
@@ -22,12 +22,18 @@ const InputWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  height: 100%;
   background-color: ${theme.color.lightGrey};
   border-radius: 45px;
+  font-size: 1.2rem;
 `;
 
 const Input = styled.input`
   font-size: 1.2rem;
-  width: 85%;
+  width: 100%;
+  margin-left: 1rem;
   border: none;
+  ::placeholder {
+    font-family: GmarketSansMedium;
+  }
 `;
