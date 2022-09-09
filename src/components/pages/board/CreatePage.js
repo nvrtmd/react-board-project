@@ -5,6 +5,7 @@ import axios from "axios";
 import Layout from "../../../layout/layout";
 import { theme } from "../../../styles/theme";
 import Button from "../../global/Button";
+import InputContainer from "../../board/InputContainer";
 
 export default function CreatePage() {
   const navigate = useNavigate();
@@ -53,12 +54,10 @@ export default function CreatePage() {
       <PostCreateForm>
         <div>
           <div>
-            <label htmlFor="postTitle">제목</label>
-            <input
-              id="postTitle"
+            <InputContainer
+              placeholder="제목을 입력하세요"
               name="postTitle"
-              type="text"
-              onChange={handleInputChange}
+              setData={setNewPostData}
             />
           </div>
           <div>

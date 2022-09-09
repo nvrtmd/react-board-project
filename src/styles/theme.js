@@ -6,6 +6,7 @@ const color = {
   black: "#0b0b0b",
   grey: "#C6C6C6",
   deepGrey: "#414040",
+  lightGrey: "#f8f8f8",
 };
 
 const layout = {
