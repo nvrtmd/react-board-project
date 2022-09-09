@@ -4,6 +4,7 @@ import Layout from "../../../layout/layout";
 import styled from "styled-components/macro";
 import { theme } from "../../../styles/theme";
 import { useNavigate } from "react-router-dom";
+import Button from "../../global/Button";
 
 export default function ProfilePage() {
   const navigate = useNavigate();
@@ -109,9 +110,12 @@ export default function ProfilePage() {
       </ProfileForm>
 
       <ButtonWrapper>
-        <Button onClick={handleModifyButtonClick}>정보수정</Button>
-        <Button onClick={handleSignoutButtonClick}>로그아웃</Button>
-        <Button onClick={handleUserDeleteButtonClick}>회원탈퇴</Button>
+        <Button handleClick={handleModifyButtonClick} buttonName="Modify" />
+        <Button handleClick={handleSignoutButtonClick} buttonName="Sign out" />
+        <Button
+          handleClick={handleUserDeleteButtonClick}
+          buttonName="Delete account"
+        />
       </ButtonWrapper>
     </Layout>
   );
@@ -137,19 +141,4 @@ const ButtonWrapper = styled.div`
   justify-content: space-between;
   width: 45%;
   margin: 0 auto;
-`;
-
-const Button = styled.div`
-  background: ${theme.color.lightPurple};
-  padding: 1rem 1.5rem;
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  &:hover {
-    background: ${theme.color.primary};
-  }
 `;

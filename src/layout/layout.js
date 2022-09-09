@@ -45,7 +45,8 @@ const Main = styled.main`
 `;
 
 const Wrapper = styled.div`
-  padding: 3rem 0.5rem;
+  padding: 3rem 1.5rem;
+  width: 100%;
 `;
 
 export default Layout;

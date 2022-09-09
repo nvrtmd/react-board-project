@@ -3,8 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components/macro";
 import moment from "moment";
-import { theme } from "../../../styles/theme";
 import Layout from "../../../layout/layout";
+import Button from "../../global/Button";
 
 export default function PostPage() {
   const navigate = useNavigate();
@@ -86,9 +86,12 @@ export default function PostPage() {
           <PostBody>{postData.postContents} </PostBody>
         </PostWrapper>
         <ButtonWrapper>
-          <Button onClick={handleModifyButtonClick}>수정</Button>
-          <Button onClick={handleDeleteButtonClick}>삭제</Button>
-          <Button onClick={() => navigate("/board/list")}>목록</Button>
+          <Button handleClick={handleModifyButtonClick} buttonName="Modify" />
+          <Button handleClick={handleDeleteButtonClick} buttonName="Delete" />
+          <Button
+            handleClick={() => navigate("/board/list")}
+            buttonName="Cancel"
+          />
         </ButtonWrapper>
       </PostContainer>
     </Layout>
@@ -131,21 +134,6 @@ const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 40%;
+  width: 75%;
   margin: 0 auto;
-`;
-
-const Button = styled.div`
-  background: ${theme.color.lightPurple};
-  padding: 1rem 1.5rem;
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  &:hover {
-    background: ${theme.color.primary};
-  }
 `;

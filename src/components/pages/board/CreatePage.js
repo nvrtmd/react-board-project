@@ -4,6 +4,7 @@ import styled from "styled-components/macro";
 import axios from "axios";
 import Layout from "../../../layout/layout";
 import { theme } from "../../../styles/theme";
+import Button from "../../global/Button";
 
 export default function CreatePage() {
   const navigate = useNavigate();
@@ -83,8 +84,11 @@ export default function CreatePage() {
       </PostCreateForm>
 
       <ButtonWrapper>
-        <Button onClick={handleCreateButtonClick}>작성</Button>
-        <Button onClick={() => navigate("/board/list")}>취소</Button>
+        <Button handleClick={handleCreateButtonClick} buttonName="Write" />
+        <Button
+          handleClick={() => navigate("/board/list")}
+          buttonName="Cancel"
+        />
       </ButtonWrapper>
     </Layout>
   );
@@ -106,19 +110,4 @@ const ButtonWrapper = styled.div`
   justify-content: space-between;
   width: 20%;
   margin: 0 auto;
-`;
-
-const Button = styled.div`
-  background: ${theme.color.lightPurple};
-  padding: 1rem 1.5rem;
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  &:hover {
-    background: ${theme.color.primary};
-  }
 `;

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components/macro";
-import { theme } from "../../../styles/theme";
 import Layout from "../../../layout/layout";
+import Button from "../../global/Button";
 
 export default function ModifyPage() {
   const navigate = useNavigate();
@@ -90,7 +90,7 @@ export default function ModifyPage() {
         </div>
       </PostModifyForm>
       <ButtonWrapper>
-        <Button onClick={handleModifyButtonClick}>수정</Button>
+        <Button handleClick={handleModifyButtonClick} buttonName="Modify" />
       </ButtonWrapper>
     </Layout>
   );
@@ -110,20 +110,4 @@ const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
-
-const Button = styled.div`
-  background: ${theme.color.lightPurple};
-  width: 20%;
-  padding: 1rem 0px;
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  &:hover {
-    background: ${theme.color.primary};
-  }
 `;

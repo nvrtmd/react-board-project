@@ -32,7 +32,6 @@ export default function ListPage() {
           handleClick={() => navigate("/board/create")}
           buttonName="Write"
         />
-        {/* <Button onClick={() => navigate("/board/create")}>게시글 작성</Button> */}
       </ButtonWrapper>
       <TableWrapper>
         <table>

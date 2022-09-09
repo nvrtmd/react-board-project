@@ -7,8 +7,7 @@ export default function Button({ handleClick, buttonName }) {
 
 const ButtonBox = styled.div`
   background: ${theme.color.lightPurple};
-  width: 20%;
-  padding: 1rem 0px;
+  padding: 1rem;
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -18,5 +17,6 @@ const ButtonBox = styled.div`
   cursor: pointer;
   &:hover {
     background: ${theme.color.primary};
+    color: ${theme.color.white};
   }
 `;
