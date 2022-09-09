@@ -1,18 +1,16 @@
 import styled from "styled-components/macro";
 import { theme } from "../../styles/theme";
 
-export default function InputContainer({ title, name, setData, placeholder }) {
-  const handleInputChange = (e) => {
-    setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+export default function InputContainer({
+  title,
+  name,
+  placeholder,
+  handleChange,
+}) {
   return (
     <InputWrapper>
       {title}
-      <Input
-        name={name}
-        onChange={(e) => handleInputChange(e)}
-        placeholder={placeholder}
-      />
+      <Input name={name} onChange={handleChange} placeholder={placeholder} />
     </InputWrapper>
   );
 }

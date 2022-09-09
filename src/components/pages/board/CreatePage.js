@@ -8,6 +8,7 @@ import Button from "../../global/Button";
 import InputContainer from "../../board/InputContainer";
 import TextInputContainer from "../../board/TextInputContainer";
 import { ButtonWrapper } from "./ListPage";
+import SelectContainer from "../../board/SelectContainer";
 
 export default function CreatePage() {
   const navigate = useNavigate();
@@ -60,26 +61,26 @@ export default function CreatePage() {
               title="Title"
               placeholder="Write title"
               name="postTitle"
-              setData={setNewPostData}
+              handleChange={handleInputChange}
             />
           </PostTitleWrapper>
           <PostContentsWrapper>
             <TextInputContainer
               placeholder="Write Contents"
               name="postContents"
-              setData={setNewPostData}
+              handleChange={handleInputChange}
             />
           </PostContentsWrapper>
-          <div>
-            <select
-              id="postDisplay"
+          <A>
+            <SelectContainer
+              optionList={[
+                { name: "게시함", value: true },
+                { name: "게시 안함", value: false },
+              ]}
               name="postDisplay"
-              onChange={handleInputChange}
-            >
-              <option value={true}>게시함</option>
-              <option value={false}>게시안함</option>
-            </select>
-          </div>
+              handleChange={handleInputChange}
+            />
+          </A>
         </PostCreateForm>
       </PostCreateFormWrapper>
 
@@ -93,6 +94,9 @@ export default function CreatePage() {
     </Layout>
   );
 }
+const A = styled.div`
+  height: 3rem;
+`;
 
 const PageTitle = styled.div`
   text-align: center;
