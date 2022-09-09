@@ -6,6 +6,7 @@ import { theme } from "../../../styles/theme";
 import Layout from "../../../layout/layout";
 import moment from "moment";
 import Button from "../../global/Button";
+import PostContainer from "../../board/PostContainer";
 
 export default function ListPage() {
   const navigate = useNavigate();
@@ -33,62 +34,30 @@ export default function ListPage() {
           buttonName="Write"
         />
       </ButtonWrapper>
-      <TableWrapper>
-        <table>
-          <thead>
-            <tr>
-              <th>Index</th>
-              <th>Title</th>
-              <th>Contents</th>
-              <th>Views</th>
-              <th>Date</th>
-              <th>Writer</th>
-            </tr>
-          </thead>
-          <tbody>
-            {postsData &&
-              postsData
-                .filter((data) => data.post_display)
-                .map((data) => (
-                  <TableRow
-                    key={data.post_id}
-                    onClick={() => moveToPost(data.post_id)}
-                  >
-                    <TableCell>{data.post_id}</TableCell>
-                    <TableCell>{data.post_title}</TableCell>
-                    <TableCell>
-                      {data.post_contents.substr(0, 5) + "..."}
-                    </TableCell>
-                    <TableCell>{data.post_views}</TableCell>
-                    <TableCell>
-                      {moment(data.post_register_date).format("YY-MM-DD HH:mm")}
-                    </TableCell>
-                    <TableCell>{data.post_register_user_name}</TableCell>
-                  </TableRow>
-                ))}
-          </tbody>
-        </table>
-      </TableWrapper>
+      {postsData &&
+        postsData
+          .filter((data) => data.post_display)
+          .map((data) => (
+            <PostContainer
+              handleClick={() => moveToPost(data.post_id)}
+              key={data.post_id}
+              postId={data.post_id}
+              postTitle={data.post_title}
+              postContents={data.post_contents.substr(0, 10) + "..."}
+              postViews={data.post_views}
+              postRegisterDate={moment(data.post_register_date).format(
+                "YY-MM-DD HH:mm"
+              )}
+              postRegisterUserName={data.post_register_user_name}
+            />
+          ))}
     </Layout>
   );
 }
-
-const TableWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  padding: 2rem 0;
-`;
-
-const TableRow = styled.tr`
-  cursor: pointer;
-`;
-
-const TableCell = styled.td`
-  padding: 0.5rem 1.5rem;
-`;
 
 const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 2.5rem;
 `;

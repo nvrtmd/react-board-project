@@ -90,7 +90,7 @@ export default function PostPage() {
           <Button handleClick={handleDeleteButtonClick} buttonName="Delete" />
           <Button
             handleClick={() => navigate("/board/list")}
-            buttonName="Cancel"
+            buttonName="List"
           />
         </ButtonWrapper>
       </PostContainer>
