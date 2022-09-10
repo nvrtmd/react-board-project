@@ -121,5 +121,5 @@ const PostContentsWrapper = styled.div`
 
 const SelectWrapper = styled.div`
   height: 4.5rem;
-  width: 50%;
+  width: 10rem;
 `;
