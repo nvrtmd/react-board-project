@@ -22,7 +22,7 @@ const InputWrapper = styled.div`
   padding: 1rem;
   height: 100%;
   background-color: ${theme.color.lightGrey};
-  border-radius: 45px;
+  border-radius: 3rem;
   font-size: 1.2rem;
 `;
 

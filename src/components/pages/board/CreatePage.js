@@ -71,7 +71,7 @@ export default function CreatePage() {
               handleChange={handleInputChange}
             />
           </PostContentsWrapper>
-          <A>
+          <SelectWrapper>
             <SelectContainer
               optionList={[
                 { name: "게시함", value: true },
@@ -80,7 +80,7 @@ export default function CreatePage() {
               name="postDisplay"
               handleChange={handleInputChange}
             />
-          </A>
+          </SelectWrapper>
         </PostCreateForm>
       </PostCreateFormWrapper>
 
@@ -94,9 +94,6 @@ export default function CreatePage() {
     </Layout>
   );
 }
-const A = styled.div`
-  height: 3rem;
-`;
 
 const PageTitle = styled.div`
   text-align: center;
@@ -120,4 +117,9 @@ const PostTitleWrapper = styled.div`
 const PostContentsWrapper = styled.div`
   height: 25rem;
   margin-bottom: 1rem;
+`;
+
+const SelectWrapper = styled.div`
+  height: 4.5rem;
+  width: 50%;
 `;

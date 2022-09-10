@@ -22,16 +22,20 @@ const SelectWrapper = styled.div`
   height: 100%;
   background-color: ${theme.color.lightGrey};
   border-radius: 3rem;
+  padding: 1rem;
 `;
 
 const Select = styled.select`
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
   font-size: 1.2rem;
   font-family: GmarketSansMedium;
   border: none;
   outline: none;
   width: 100%;
   background-color: ${theme.color.lightGrey};
-  appearance: none;
   -webkit-appearance: none;
   background-position-x: 96%;
   background-position-y: 50%;

@@ -22,6 +22,7 @@ const TextInputWrapper = styled.div`
   align-items: center;
   background: ${theme.color.lightGrey};
   border-radius: 3rem;
+  padding: 1rem;
   height: 100%;
 `;
 
@@ -30,11 +31,10 @@ const TextInput = styled.textarea`
   resize: none;
   background: none;
   border: none;
-  width: 90%;
+  width: 100%;
   font-size: 1.2rem;
   font-family: GmarketSansMedium;
-
-  height: 85%;
+  height: 95%;
   ::-webkit-scrollbar {
     width: 5.2px;
   }
