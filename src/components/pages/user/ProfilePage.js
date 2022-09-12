@@ -6,6 +6,7 @@ import { theme } from "../../../styles/theme";
 import { useNavigate } from "react-router-dom";
 import Button from "../../global/Button";
 import { ButtonWrapper } from "../board/ListPage";
+import InputContainer from "../../board/InputContainer";
 
 export default function ProfilePage() {
   const navigate = useNavigate();
@@ -58,7 +59,7 @@ export default function ProfilePage() {
       <PageTitle>PROFILE</PageTitle>
       <ProfileForm>
         <div>
-          <ProfileInput>
+          {/* <ProfileInput>
             <label htmlFor="userId">아이디</label>
             <input
               type="text"
@@ -106,7 +107,58 @@ export default function ProfilePage() {
               value={userData.userPhone}
               onChange={handleInputChange}
             />
-          </ProfileInput>
+          </ProfileInput> */}
+
+          <UserIdWrapper>
+            <InputContainer
+              title="Id"
+              placeholder="Write id"
+              name="userId"
+              handleChange={handleInputChange}
+              type="text"
+              value={userData.userId}
+            />
+          </UserIdWrapper>
+          <UserPasswordWrapper>
+            <InputContainer
+              title="Password"
+              placeholder="Write password"
+              name="userPassword"
+              handleChange={handleInputChange}
+              type="password"
+              value={userData.userPassword}
+            />
+          </UserPasswordWrapper>
+          <UserNicknameWrapper>
+            <InputContainer
+              title="Nickname"
+              placeholder="Write nickname"
+              name="userNickname"
+              handleChange={handleInputChange}
+              type="text"
+              value={userData.userNickname}
+            />
+          </UserNicknameWrapper>
+          <UserNameWrapper>
+            <InputContainer
+              title="Name"
+              placeholder="Write name"
+              name="userName"
+              handleChange={handleInputChange}
+              type="text"
+              value={userData.userName}
+            />
+          </UserNameWrapper>
+          <UserPhoneWrapper>
+            <InputContainer
+              title="Phone"
+              placeholder="Write phone number"
+              name="userPhone"
+              handleChange={handleInputChange}
+              type="text"
+              value={userData.userPhone}
+            />
+          </UserPhoneWrapper>
         </div>
       </ProfileForm>
 
@@ -132,6 +184,12 @@ const ProfileForm = styled.div`
   padding: 2rem;
 `;
 
-const ProfileInput = styled.div`
-  padding: 0.3rem 0;
+const UserIdWrapper = styled.div`
+  height: 4.5rem;
+  margin-bottom: 1rem;
 `;
+
+const UserPasswordWrapper = styled(UserIdWrapper)``;
+const UserNicknameWrapper = styled(UserIdWrapper)``;
+const UserNameWrapper = styled(UserIdWrapper)``;
+const UserPhoneWrapper = styled(UserIdWrapper)``;
