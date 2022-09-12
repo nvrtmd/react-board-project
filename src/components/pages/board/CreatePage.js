@@ -59,6 +59,7 @@ export default function CreatePage() {
           <PostTitleWrapper>
             <InputContainer
               title="Title"
+              type="text"
               placeholder="Write title"
               name="postTitle"
               handleChange={handleInputChange}
@@ -67,6 +68,7 @@ export default function CreatePage() {
           <PostContentsWrapper>
             <TextInputContainer
               placeholder="Write Contents"
+              type="text"
               name="postContents"
               handleChange={handleInputChange}
             />

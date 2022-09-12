@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
   input, button {
     background-color: transparent;
     outline: none;
-    cursor: pointer;
+    /* cursor: pointer; */
   }
 
   ol, ul, li {

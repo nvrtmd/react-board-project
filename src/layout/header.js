@@ -71,7 +71,7 @@ const HeaderLogo = styled.img`
 const AuthenticationWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 33%;
+  width: 13rem;
 `;
 
 const ClickableText = styled.div`

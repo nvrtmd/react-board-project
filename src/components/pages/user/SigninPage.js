@@ -6,6 +6,7 @@ import Layout from "../../../layout/layout";
 import { theme } from "../../../styles/theme";
 import Button from "../../global/Button";
 import { ButtonWrapper } from "../board/ListPage";
+import InputContainer from "../../board/InputContainer";
 
 export default function SigninPage() {
   const navigate = useNavigate();
@@ -32,24 +33,24 @@ export default function SigninPage() {
       <PageTitle>SIGN IN</PageTitle>
       <SigninForm>
         <div>
-          <SigninInput>
-            <label htmlFor="userId">아이디</label>
-            <input
-              type="text"
-              id="userId"
+          <UserIdWrapper>
+            <InputContainer
+              title="Id"
+              placeholder="Write id"
               name="userId"
-              onChange={handleInputChange}
+              handleChange={handleInputChange}
+              type="text"
             />
-          </SigninInput>
-          <SigninInput>
-            <label htmlFor="userPassword">비밀번호</label>
-            <input
+          </UserIdWrapper>
+          <UserPasswordWrapper>
+            <InputContainer
+              title="Password"
               type="password"
-              id="userPassword"
+              placeholder="Write password"
               name="userPassword"
-              onChange={handleInputChange}
+              handleChange={handleInputChange}
             />
-          </SigninInput>
+          </UserPasswordWrapper>
         </div>
       </SigninForm>
       <ButtonWrapper>
@@ -69,6 +70,12 @@ const SigninForm = styled.div`
   padding: 2rem;
 `;
 
-const SigninInput = styled.div`
-  padding: 0.3rem 0;
+const UserIdWrapper = styled.div`
+  height: 4.5rem;
+  margin-bottom: 1rem;
+`;
+
+const UserPasswordWrapper = styled(UserIdWrapper)`
+  height: 4.5rem;
+  margin-bottom: 1rem;
 `;

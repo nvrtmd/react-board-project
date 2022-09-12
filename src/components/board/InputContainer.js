@@ -6,11 +6,17 @@ export default function InputContainer({
   name,
   placeholder,
   handleChange,
+  type,
 }) {
   return (
     <InputWrapper>
       {title}
-      <Input name={name} onChange={handleChange} placeholder={placeholder} />
+      <Input
+        name={name}
+        type={type}
+        onChange={handleChange}
+        placeholder={placeholder}
+      />
     </InputWrapper>
   );
 }
