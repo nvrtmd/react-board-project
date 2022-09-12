@@ -75,7 +75,4 @@ const UserIdWrapper = styled.div`
   margin-bottom: 1rem;
 `;
 
-const UserPasswordWrapper = styled(UserIdWrapper)`
-  height: 4.5rem;
-  margin-bottom: 1rem;
-`;
+const UserPasswordWrapper = styled(UserIdWrapper)``;

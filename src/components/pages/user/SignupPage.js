@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components/macro";
 import axios from "axios";
 import Layout from "../../../layout/layout";
-import { theme } from "../../../styles/theme";
 import Button from "../../global/Button";
 import { ButtonWrapper } from "../board/ListPage";
+import InputContainer from "../../board/InputContainer";
 
 export default function SignupPage() {
   const navigate = useNavigate();
@@ -31,51 +31,51 @@ export default function SignupPage() {
       <PageTitle>SIGN UP</PageTitle>
       <SignupForm>
         <div>
-          <SignupInput>
-            <label htmlFor="userId">아이디</label>
-            <input
-              type="text"
-              id="userId"
+          <UserIdWrapper>
+            <InputContainer
+              title="Id"
+              placeholder="Write id"
               name="userId"
-              onChange={handleInputChange}
+              handleChange={handleInputChange}
+              type="text"
             />
-          </SignupInput>
-          <SignupInput>
-            <label htmlFor="userPassword">비밀번호</label>
-            <input
-              type="password"
-              id="userPassword"
+          </UserIdWrapper>
+          <UserPasswordWrapper>
+            <InputContainer
+              title="Password"
+              placeholder="Write password"
               name="userPassword"
-              onChange={handleInputChange}
+              handleChange={handleInputChange}
+              type="password"
             />
-          </SignupInput>
-          <SignupInput>
-            <label htmlFor="userName">닉네임</label>
-            <input
-              type="text"
-              id="userNickname"
+          </UserPasswordWrapper>
+          <UserNicknameWrapper>
+            <InputContainer
+              title="Nickname"
+              placeholder="Write nickname"
               name="userNickname"
-              onChange={handleInputChange}
-            />
-          </SignupInput>
-          <SignupInput>
-            <label htmlFor="userName">이름</label>
-            <input
+              handleChange={handleInputChange}
               type="text"
-              id="userName"
+            />
+          </UserNicknameWrapper>
+          <UserNameWrapper>
+            <InputContainer
+              title="Name"
+              placeholder="Write name"
               name="userName"
-              onChange={handleInputChange}
-            />
-          </SignupInput>
-          <SignupInput>
-            <label htmlFor="userPhone">전화번호</label>
-            <input
+              handleChange={handleInputChange}
               type="text"
-              id="userPhone"
-              name="userPhone"
-              onChange={handleInputChange}
             />
-          </SignupInput>
+          </UserNameWrapper>
+          <UserPhoneWrapper>
+            <InputContainer
+              title="Phone"
+              placeholder="Write phone number"
+              name="userPhone"
+              handleChange={handleInputChange}
+              type="text"
+            />
+          </UserPhoneWrapper>
         </div>
       </SignupForm>
       <ButtonWrapper>
@@ -95,6 +95,12 @@ const SignupForm = styled.div`
   padding: 2rem;
 `;
 
-const SignupInput = styled.div`
-  padding: 0.3rem 0;
+const UserIdWrapper = styled.div`
+  height: 4.5rem;
+  margin-bottom: 1rem;
 `;
+
+const UserPasswordWrapper = styled(UserIdWrapper)``;
+const UserNicknameWrapper = styled(UserIdWrapper)``;
+const UserNameWrapper = styled(UserIdWrapper)``;
+const UserPhoneWrapper = styled(UserIdWrapper)``;
