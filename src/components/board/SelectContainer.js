@@ -23,12 +23,10 @@ const SelectWrapper = styled.div`
   background-color: ${theme.color.lightGrey};
   border-radius: 3rem;
   padding: 1rem;
+  cursor: pointer;
 `;
 
 const Select = styled.select`
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
   cursor: pointer;
   font-size: 1.2rem;
   font-family: GmarketSansMedium;
@@ -36,9 +34,6 @@ const Select = styled.select`
   outline: none;
   width: 100%;
   background-color: ${theme.color.lightGrey};
-  -webkit-appearance: none;
-  background-position-x: 96%;
-  background-position-y: 50%;
 `;
 const Option = styled.option`
   padding: 30px;
