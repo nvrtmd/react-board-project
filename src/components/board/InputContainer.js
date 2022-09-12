@@ -7,6 +7,7 @@ export default function InputContainer({
   placeholder,
   handleChange,
   type,
+  value,
 }) {
   return (
     <InputWrapper>
@@ -16,6 +17,7 @@ export default function InputContainer({
         type={type}
         onChange={handleChange}
         placeholder={placeholder}
+        value={value}
       />
     </InputWrapper>
   );

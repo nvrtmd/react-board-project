@@ -5,6 +5,7 @@ export default function TextInputContainer({
   name,
   handleChange,
   placeholder,
+  value,
 }) {
   return (
     <TextInputWrapper>
@@ -12,6 +13,7 @@ export default function TextInputContainer({
         name={name}
         placeholder={placeholder}
         onChange={handleChange}
+        value={value}
       />
     </TextInputWrapper>
   );

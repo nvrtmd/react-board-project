@@ -5,6 +5,9 @@ import styled from "styled-components/macro";
 import Layout from "../../../layout/layout";
 import Button from "../../global/Button";
 import { ButtonWrapper } from "./ListPage";
+import InputContainer from "../../board/InputContainer";
+import TextInputContainer from "../../board/TextInputContainer";
+import SelectContainer from "../../board/SelectContainer";
 
 export default function ModifyPage() {
   const navigate = useNavigate();
@@ -55,41 +58,40 @@ export default function ModifyPage() {
   return (
     <Layout>
       <PageTitle>MODIFY POST</PageTitle>
-      <PostModifyForm>
-        <div>
-          <div>
-            <label htmlFor="postTitle">제목</label>
-            <input
-              id="postTitle"
-              name="postTitle"
+      <PostModifyFormWrapper>
+        <PostModifyForm>
+          <PostTitleWrapper>
+            <InputContainer
+              title="Title"
               type="text"
+              placeholder="Write title"
+              name="postTitle"
+              handleChange={handleInputChange}
               value={postData.postTitle}
-              onChange={handleInputChange}
             />
-          </div>
-          <div>
-            <label htmlFor="postContents">내용</label>
-            <textarea
+          </PostTitleWrapper>
+          <PostContentsWrapper>
+            <TextInputContainer
+              placeholder="Write Contents"
+              type="text"
               name="postContents"
-              rows="20"
-              cols="50"
+              handleChange={handleInputChange}
               value={postData.postContents}
-              onChange={handleInputChange}
-            ></textarea>
-          </div>
-          <div>
-            <select
-              id="postDisplay"
+            />
+          </PostContentsWrapper>
+          <SelectWrapper>
+            <SelectContainer
+              optionList={[
+                { name: "게시함", value: true },
+                { name: "게시 안함", value: false },
+              ]}
               name="postDisplay"
-              onChange={handleInputChange}
-              value={postData.postDisplay ? true : false}
-            >
-              <option value={true}>게시함</option>
-              <option value={false}>게시안함</option>
-            </select>
-          </div>
-        </div>
-      </PostModifyForm>
+              handleChange={handleInputChange}
+              value={Boolean(postData.postDisplay)}
+            />
+          </SelectWrapper>
+        </PostModifyForm>
+      </PostModifyFormWrapper>
       <ButtonWrapper>
         <Button handleClick={handleModifyButtonClick} buttonName="Modify" />
       </ButtonWrapper>
@@ -101,8 +103,27 @@ const PageTitle = styled.div`
   text-align: center;
 `;
 
-const PostModifyForm = styled.div`
+const PostModifyFormWrapper = styled.div`
   display: flex;
   justify-content: center;
   padding: 2rem;
+`;
+
+const PostModifyForm = styled.div`
+  width: 100%;
+`;
+
+const PostTitleWrapper = styled.div`
+  height: 4.5rem;
+  margin-bottom: 1rem;
+`;
+
+const PostContentsWrapper = styled.div`
+  height: 25rem;
+  margin-bottom: 1rem;
+`;
+
+const SelectWrapper = styled.div`
+  height: 4.5rem;
+  width: 10rem;
 `;

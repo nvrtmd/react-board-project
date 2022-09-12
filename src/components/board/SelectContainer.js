@@ -1,10 +1,15 @@
 import styled from "styled-components/macro";
 import { theme } from "../../styles/theme";
 
-export default function SelectContainer({ optionList, handleChange, name }) {
+export default function SelectContainer({
+  optionList,
+  handleChange,
+  name,
+  value,
+}) {
   return (
     <SelectWrapper>
-      <Select onChange={handleChange} name={name}>
+      <Select onChange={handleChange} name={name} value={value}>
         {optionList &&
           optionList.map((option, index) => (
             <Option key={index} value={option.value}>
