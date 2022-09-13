@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components/macro";
 import axios from "axios";
-import Layout from "../../../layout/layout";
+import { Layout } from "../../../layout/layout";
 import { theme } from "../../../styles/theme";
-import Button from "../../global/Button";
-import InputContainer from "../../board/InputContainer";
-import TextInputContainer from "../../board/TextInputContainer";
+import { Button } from "../../global/Button";
+import { InputContainer } from "../../board/InputContainer";
+import { TextInputContainer } from "../../board/TextInputContainer";
 import { ButtonWrapper } from "./ListPage";
-import SelectContainer from "../../board/SelectContainer";
+import { SelectContainer } from "../../board/SelectContainer";
 
-export default function CreatePage() {
+export function CreatePage() {
   const navigate = useNavigate();
   const [newPostData, setNewPostData] = useState({
     postTitle: "",

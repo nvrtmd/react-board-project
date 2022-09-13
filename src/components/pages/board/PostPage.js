@@ -3,11 +3,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components/macro";
 import moment from "moment";
-import Layout from "../../../layout/layout";
-import Button from "../../global/Button";
+import { Layout } from "../../../layout/layout";
+import { Button } from "../../global/Button";
 import { ButtonWrapper } from "./ListPage";
 
-export default function PostPage() {
+export function PostPage() {
   const navigate = useNavigate();
   const params = useParams();
   const [postData, setPostData] = useState({

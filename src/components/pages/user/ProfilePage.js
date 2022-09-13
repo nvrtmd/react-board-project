@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Layout from "../../../layout/layout";
 import styled from "styled-components/macro";
+import { Layout } from "../../../layout/layout";
 import { theme } from "../../../styles/theme";
 import { useNavigate } from "react-router-dom";
-import Button from "../../global/Button";
+import { Button } from "../../global/Button";
 import { ButtonWrapper } from "../board/ListPage";
-import InputContainer from "../../board/InputContainer";
+import { InputContainer } from "../../board/InputContainer";
 
-export default function ProfilePage() {
+export function ProfilePage() {
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
     userId: "",

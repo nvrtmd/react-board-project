@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components/macro";
-import Layout from "../../../layout/layout";
-import Button from "../../global/Button";
+import { Layout } from "../../../layout/layout";
+import { Button } from "../../global/Button";
 import { ButtonWrapper } from "./ListPage";
-import InputContainer from "../../board/InputContainer";
-import TextInputContainer from "../../board/TextInputContainer";
-import SelectContainer from "../../board/SelectContainer";
+import { InputContainer } from "../../board/InputContainer";
+import { TextInputContainer } from "../../board/TextInputContainer";
+import { SelectContainer } from "../../board/SelectContainer";
 
-export default function ModifyPage() {
+export function ModifyPage() {
   const navigate = useNavigate();
   const params = useParams();
   const [postData, setPostData] = useState({

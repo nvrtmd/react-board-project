@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components/macro";
 import { theme } from "../../../styles/theme";
-import Layout from "../../../layout/layout";
+import { Layout } from "../../../layout/layout";
 import moment from "moment";
-import Button from "../../global/Button";
-import PostContainer from "../../board/PostContainer";
+import { Button } from "../../global/Button";
+import { PostContainer } from "../../board/PostContainer";
 
-export default function ListPage() {
+export function ListPage() {
   const navigate = useNavigate();
   const [postsData, setPostsData] = useState([]);
 

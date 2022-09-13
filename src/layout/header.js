@@ -5,7 +5,10 @@ import axios from "axios";
 import { theme } from "../styles/theme";
 import headerLogoImage from "../assets/header_logo.png";
 
-function Header({ isSignedin, setIsSignedin }) {
+export const Header = React.memo(function Header({
+  isSignedin,
+  setIsSignedin,
+}) {
   const navigate = useNavigate();
 
   const handleSignoutButtonClick = async () => {
@@ -46,7 +49,7 @@ function Header({ isSignedin, setIsSignedin }) {
       </HeaderWrapper>
     </HeaderContainer>
   );
-}
+});
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -82,5 +85,3 @@ const ClickableText = styled.div`
     transition: all 0.3s ease;
   }
 `;
-
-export default React.memo(Header);

@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components/macro";
 import axios from "axios";
-import Layout from "../../../layout/layout";
+import { Layout } from "../../../layout/layout";
 import { theme } from "../../../styles/theme";
-import Button from "../../global/Button";
+import { Button } from "../../global/Button";
 import { ButtonWrapper } from "../board/ListPage";
-import InputContainer from "../../board/InputContainer";
+import { InputContainer } from "../../board/InputContainer";
 
-export default function SigninPage() {
+export function SigninPage() {
   const navigate = useNavigate();
   const [signinData, setSigninData] = useState({
     userId: "",

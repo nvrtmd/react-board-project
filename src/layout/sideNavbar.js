@@ -3,7 +3,10 @@ import styled from "styled-components/macro";
 import { useNavigate } from "react-router-dom";
 import { theme } from "../styles/theme";
 
-function SideNavbar({ isSignedin, signedinUserName }) {
+export const SideNavbar = React.memo(function SideNavbar({
+  isSignedin,
+  signedinUserName,
+}) {
   const navigate = useNavigate();
 
   const isClicked = (tabName) => {
@@ -44,8 +47,7 @@ function SideNavbar({ isSignedin, signedinUserName }) {
       </TabWrapper>
     </SideNavbarWrapper>
   );
-}
-
+});
 const SideNavbarWrapper = styled.div`
   width: 23%;
   max-width: 200px;
@@ -79,5 +81,3 @@ const Tab = styled.div`
     transition: all 0.3s ease 0s;
   }
 `;
-
-export default React.memo(SideNavbar);

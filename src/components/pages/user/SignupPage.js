@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components/macro";
 import axios from "axios";
-import Layout from "../../../layout/layout";
-import Button from "../../global/Button";
+import { Layout } from "../../../layout/layout";
+import { Button } from "../../global/Button";
 import { ButtonWrapper } from "../board/ListPage";
-import InputContainer from "../../board/InputContainer";
+import { InputContainer } from "../../board/InputContainer";
 
-export default function SignupPage() {
+export function SignupPage() {
   const navigate = useNavigate();
   const [signupData, setSignupData] = useState({
     userId: "",

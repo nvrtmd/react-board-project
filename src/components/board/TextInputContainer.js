@@ -1,12 +1,7 @@
 import styled from "styled-components/macro";
 import { theme } from "../../styles/theme";
 
-export default function TextInputContainer({
-  name,
-  handleChange,
-  placeholder,
-  value,
-}) {
+export function TextInputContainer({ name, handleChange, placeholder, value }) {
   return (
     <TextInputWrapper>
       <TextInput

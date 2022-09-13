@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components/macro";
 import axios from "axios";
 import { theme } from "../styles/theme";
-import Header from "./header";
-import SideNavbar from "./sideNavbar";
+import { Header } from "./header";
+import { SideNavbar } from "./sideNavbar";
 
-const Layout = (props) => {
+export const Layout = (props) => {
   const [isSignedin, setIsSignedin] = useState(false);
   const [signedinUserName, setSignedinUserName] = useState("");
 
@@ -48,5 +48,3 @@ const Wrapper = styled.div`
   padding: 3rem 1.5rem;
   width: 100%;
 `;
-
-export default Layout;

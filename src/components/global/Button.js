@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 import { theme } from "../../styles/theme";
 
-export default function Button({ handleClick, buttonName }) {
+export function Button({ handleClick, buttonName }) {
   return <ButtonBox onClick={handleClick}>{buttonName}</ButtonBox>;
 }
 

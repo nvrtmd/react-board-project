@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 import { theme } from "../../styles/theme";
 
-export default function InputContainer({
+export function InputContainer({
   title,
   name,
   placeholder,
