@@ -94,6 +94,10 @@ export default function ModifyPage() {
       </PostModifyFormWrapper>
       <ButtonWrapper>
         <Button handleClick={handleModifyButtonClick} buttonName="Modify" />
+        <Button
+          handleClick={() => navigate("/board/list")}
+          buttonName="Cancel"
+        />
       </ButtonWrapper>
     </Layout>
   );

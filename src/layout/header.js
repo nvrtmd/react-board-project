@@ -1,15 +1,16 @@
 import React from "react";
 import styled from "styled-components/macro";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { theme } from "../styles/theme";
 import headerLogoImage from "../assets/header_logo.png";
 
-function Header({ isSignedin }) {
+function Header({ isSignedin, setIsSignedin }) {
   const navigate = useNavigate();
 
   const handleSignoutButtonClick = async () => {
     await axios.get(`/user/signout`, { withCredentials: true });
+    setIsSignedin(false);
     navigate(`/board/list`);
   };
 

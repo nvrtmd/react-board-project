@@ -27,7 +27,7 @@ const Layout = (props) => {
 
   return (
     <>
-      <Header isSignedin={isSignedin} />
+      <Header isSignedin={isSignedin} setIsSignedin={setIsSignedin} />
       <Main>
         <SideNavbar
           isSignedin={isSignedin}
