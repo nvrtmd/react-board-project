@@ -38,12 +38,14 @@ export const SideNavbar = React.memo(function SideNavbar({
         >
           Board
         </Tab>
-        <Tab
-          isClicked={isClicked("user")}
-          onClick={() => navigate("/board/list")}
-        >
-          User Dashboard
-        </Tab>
+        {signedinUserName === "admin" && (
+          <Tab
+            isClicked={isClicked("user")}
+            onClick={() => navigate("/board/list")}
+          >
+            User Dashboard
+          </Tab>
+        )}
       </TabWrapper>
     </SideNavbarWrapper>
   );

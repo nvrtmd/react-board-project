@@ -13,9 +13,9 @@ export function ListPage() {
   const [postsData, setPostsData] = useState([]);
 
   const getPostsData = async () => {
-    const fetchedPostsData = await axios.get(`/board/list`).data.data;
+    const fetchedPostsData = await axios.get(`/board/list`);
 
-    setPostsData(fetchedPostsData);
+    setPostsData(fetchedPostsData.data.data);
   };
 
   useEffect(() => {
