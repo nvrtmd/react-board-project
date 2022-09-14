@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ListPage as PostListPage } from "./components/pages/board/ListPage";
+import { ListPage as UserListPage } from "./components/pages/user/ListPage";
 import { SignupPage } from "./components/pages/user/SignupPage";
 import { SigninPage } from "./components/pages/user/SigninPage";
 import { ProfilePage } from "./components/pages/user/ProfilePage";
@@ -18,6 +19,7 @@ function App() {
         <Route path="/user/signup" element={<SignupPage />} />
         <Route path="/user/signin" element={<SigninPage />} />
         <Route path="/user/profile" element={<ProfilePage />} />
+        <Route path="/user/list" element={<UserListPage />} />
       </Routes>
     </BrowserRouter>
   );

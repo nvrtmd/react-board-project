@@ -13,7 +13,7 @@ export function ListPage() {
   const [postsData, setPostsData] = useState([]);
 
   const getPostsData = async () => {
-    const fetchedPostsData = await (await axios.get(`/board/list`)).data.data;
+    const fetchedPostsData = await axios.get(`/board/list`).data.data;
 
     setPostsData(fetchedPostsData);
   };
