@@ -39,12 +39,12 @@ export const SideNavbar = React.memo(function SideNavbar({
           Board
         </Tab>
         {signedinUserName === "admin" && (
-          <Tab
+          <UserDashboardTab
             isClicked={isClicked("user")}
-            onClick={() => navigate("/board/list")}
+            onClick={() => navigate("/user/list")}
           >
             User Dashboard
-          </Tab>
+          </UserDashboardTab>
         )}
       </TabWrapper>
     </SideNavbarWrapper>
@@ -82,4 +82,9 @@ const Tab = styled.div`
     border-left: 5px solid ${theme.color.primary};
     transition: all 0.3s ease 0s;
   }
+`;
+
+const UserDashboardTab = styled(Tab)`
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
