@@ -22,37 +22,47 @@ export function ListPage() {
 
   return (
     <Layout>
-      <table>
+      <UsersTable>
         <thead>
           <tr>
-            <Th>Index</Th>
-            <Th>Id</Th>
-            <Th>Nickname</Th>
-            <Th>Name</Th>
-            <Th>Phone</Th>
+            <UsersTh>Index</UsersTh>
+            <UsersTh>Id</UsersTh>
+            <UsersTh>Nickname</UsersTh>
+            <UsersTh>Name</UsersTh>
+            <UsersTh>Phone</UsersTh>
           </tr>
         </thead>
         <tbody>
           {usersData &&
             usersData.map((data) => (
-              <tr key={data.id}>
-                <Td>{data.id}</Td>
-                <Td>{data.user_id}</Td>
-                <Td>{data.user_nickname}</Td>
-                <Td>{data.user_name}</Td>
-                <Td>{data.user_phone}</Td>
-              </tr>
+              <UsersTr key={data.id}>
+                <UsersTd>{data.id}</UsersTd>
+                <UsersTd>{data.user_id}</UsersTd>
+                <UsersTd>{data.user_nickname}</UsersTd>
+                <UsersTd>{data.user_name}</UsersTd>
+                <UsersTd>{data.user_phone}</UsersTd>
+              </UsersTr>
             ))}
         </tbody>
-      </table>
+      </UsersTable>
     </Layout>
   );
 }
 
-const Th = styled.th`
+const UsersTable = styled.table`
+  width: 100%;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
   border: 1px solid black;
 `;
 
-const Td = styled.td`
-  border: 1px solid black;
+const UsersTh = styled.th`
+  border-bottom: 1px solid black;
+`;
+
+const UsersTr = styled.tr`
+  cursor: pointer;
+`;
+
+const UsersTd = styled.td`
+  border-bottom: 1px solid black;
 `;
