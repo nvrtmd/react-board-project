@@ -21,7 +21,7 @@ export function ListPage() {
   }, [navigate]);
 
   const deleteUserData = async (userIndex) => {
-    if (window.confirm("삭제하시겠습니까?")) {
+    if (window.confirm("Delete the account?")) {
       await axios.delete(`/admin/user/${userIndex}`, {
         withCredentials: true,
       });

@@ -23,7 +23,7 @@ export const Header = React.memo(function Header({
         <HeaderLogo
           src={headerLogoImage}
           alt=""
-          onClick={() => navigate("/board/list")}
+          onClick={() => navigate("/")}
         />
         <AuthenticationWrapper>
           {isSignedin ? (

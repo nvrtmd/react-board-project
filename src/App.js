@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { WelcomePage } from "./components/pages/etc/WelcomePage";
 import { ListPage as PostsListPage } from "./components/pages/board/ListPage";
 import { ListPage as UsersListPage } from "./components/pages/admin/ListPage";
 import { SignupPage } from "./components/pages/user/SignupPage";
@@ -12,6 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<WelcomePage />} />
         <Route path="/board/list" element={<PostsListPage />} />
         <Route path="/board/:postId" element={<PostPage />} />
         <Route path="/board/create" element={<CreatePage />} />

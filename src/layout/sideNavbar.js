@@ -24,11 +24,11 @@ export const SideNavbar = React.memo(function SideNavbar({
       <ProfileWrapper>
         {isSignedin ? (
           <Profile>
-            안녕하세요, <br />
-            {signedinUserName}님!
+            Welcome, <br />
+            {signedinUserName}!
           </Profile>
         ) : (
-          <Profile>로그인이 필요합니다.</Profile>
+          <Profile>Please sign in 🤗</Profile>
         )}
       </ProfileWrapper>
       <TabWrapper>
@@ -50,6 +50,7 @@ export const SideNavbar = React.memo(function SideNavbar({
     </SideNavbarWrapper>
   );
 });
+
 const SideNavbarWrapper = styled.div`
   width: 23%;
   max-width: 200px;
