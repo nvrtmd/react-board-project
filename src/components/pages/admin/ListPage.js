@@ -4,6 +4,7 @@ import axios from "axios";
 import styled from "styled-components/macro";
 import { Layout } from "../../../layout/layout";
 import { theme } from "../../../styles/theme";
+import { USERS_TABLE_HEADS, BUTTONS_TEXT } from "../../../constants";
 
 export function ListPage() {
   const navigate = useNavigate();
@@ -40,12 +41,9 @@ export function ListPage() {
       <UsersTable>
         <thead>
           <tr>
-            <UsersTh>Index</UsersTh>
-            <UsersTh>Id</UsersTh>
-            <UsersTh>Nickname</UsersTh>
-            <UsersTh>Name</UsersTh>
-            <UsersTh>Phone</UsersTh>
-            <UsersTh>Manage</UsersTh>
+            {USERS_TABLE_HEADS.map((tableHead) => (
+              <UsersTh>{tableHead}</UsersTh>
+            ))}
           </tr>
         </thead>
         <tbody>
@@ -59,7 +57,7 @@ export function ListPage() {
                 <UsersTd>{data.user_phone}</UsersTd>
                 <UsersTd>
                   <DeleteButton onClick={() => deleteUserData(data.id)}>
-                    Delete
+                    {BUTTONS_TEXT.DELETE}
                   </DeleteButton>
                 </UsersTd>
               </UsersTr>

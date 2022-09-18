@@ -1,12 +1,12 @@
 const color = {
-  primary: "#28277c",
-  secondary: "#4c4eb7",
-  lightPurple: "#8587f3",
+  primary: "#519D9E",
+  secondary: "#58C9B9",
+  tertiary: "#9DC8C8",
   white: "#fff",
   black: "#0b0b0b",
-  grey: "#C6C6C6",
-  deepGrey: "#414040",
-  lightGrey: "#f8f8f8",
+  grey: "#9DC3C1",
+  deepGrey: "#6E7783",
+  lightGrey: "#D8E6E7",
 };
 
 const layout = {

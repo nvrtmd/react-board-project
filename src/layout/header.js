@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { theme } from "../styles/theme";
 import headerLogoImage from "../assets/header_logo.png";
+import { BUTTONS_TEXT } from "../constants";
 
 export const Header = React.memo(function Header({
   isSignedin,
@@ -29,19 +30,19 @@ export const Header = React.memo(function Header({
           {isSignedin ? (
             <>
               <ClickableText onClick={() => navigate("/user/profile")}>
-                Profile
+                {BUTTONS_TEXT.PROFILE}
               </ClickableText>
               <ClickableText onClick={handleSignoutButtonClick}>
-                Sign out
+                {BUTTONS_TEXT.SIGN_OUT}
               </ClickableText>
             </>
           ) : (
             <>
               <ClickableText onClick={() => navigate("/user/signin")}>
-                Sign in
+                {BUTTONS_TEXT.SIGN_IN}
               </ClickableText>
               <ClickableText onClick={() => navigate("/user/signup")}>
-                Sign up
+                {BUTTONS_TEXT.SIGN_UP}
               </ClickableText>
             </>
           )}
@@ -56,7 +57,7 @@ const HeaderContainer = styled.div`
   align-items: center;
   height: ${theme.layout.headerHeight};
   padding: 1rem;
-  background-color: ${theme.color.lightPurple};
+  background-color: ${theme.color.tertiary};
 `;
 
 const HeaderWrapper = styled.div`

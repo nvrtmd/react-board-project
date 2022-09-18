@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components/macro";
 import { Layout } from "../../../layout/layout";
 import WelcomeImg from "../../../assets/welcome_image.png";
+import { WELCOME_TEXT } from "../../../constants";
 
 export function WelcomePage() {
   const navigate = useNavigate();
@@ -14,8 +15,8 @@ export function WelcomePage() {
           src={WelcomeImg}
           onClick={() => navigate("/user/signin")}
         />
-        <WelcomeTitle>Hello, Welcome to my board!</WelcomeTitle>
-        <WelcomeSubtitle>☝🏻 Click Sally and sign in ☝🏻</WelcomeSubtitle>
+        <WelcomeTitle>{WELCOME_TEXT.WELCOME_TITLE}</WelcomeTitle>
+        <WelcomeSubtitle>{WELCOME_TEXT.WELCOME_SUBTITLE}</WelcomeSubtitle>
       </WelcomeWrapper>
     </Layout>
   );

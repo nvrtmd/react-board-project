@@ -3,12 +3,17 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components/macro";
 import axios from "axios";
 import { Layout } from "../../../layout/layout";
-import { theme } from "../../../styles/theme";
 import { Button } from "../../global/Button";
 import { InputContainer } from "../../board/InputContainer";
 import { TextInputContainer } from "../../board/TextInputContainer";
 import { ButtonWrapper } from "./ListPage";
 import { SelectContainer } from "../../board/SelectContainer";
+import {
+  PAGES_TITLES,
+  POST_DISPLAY_SELECT_OPTIONS,
+  BUTTONS_TEXT,
+  INPUT_PLACEHOLDERS,
+} from "../../../constants";
 
 export function CreatePage() {
   const navigate = useNavigate();
@@ -53,21 +58,21 @@ export function CreatePage() {
 
   return (
     <Layout>
-      <PageTitle>CREATE POST</PageTitle>
+      <PageTitle>{PAGES_TITLES.CREATE_POST}</PageTitle>
       <PostCreateFormWrapper>
         <PostCreateForm>
           <PostTitleWrapper>
             <InputContainer
               title="Title"
               type="text"
-              placeholder="Write title"
+              placeholder={INPUT_PLACEHOLDERS.WRITE_TITLE}
               name="postTitle"
               handleChange={handleInputChange}
             />
           </PostTitleWrapper>
           <PostContentsWrapper>
             <TextInputContainer
-              placeholder="Write Contents"
+              placeholder={INPUT_PLACEHOLDERS.WRITE_CONTENTS}
               type="text"
               name="postContents"
               handleChange={handleInputChange}
@@ -75,10 +80,7 @@ export function CreatePage() {
           </PostContentsWrapper>
           <SelectWrapper>
             <SelectContainer
-              optionList={[
-                { name: "게시함", value: true },
-                { name: "게시 안함", value: false },
-              ]}
+              optionList={POST_DISPLAY_SELECT_OPTIONS}
               name="postDisplay"
               handleChange={handleInputChange}
             />
@@ -87,10 +89,13 @@ export function CreatePage() {
       </PostCreateFormWrapper>
 
       <ButtonWrapper>
-        <Button handleClick={handleCreateButtonClick} buttonName="Write" />
+        <Button
+          handleClick={handleCreateButtonClick}
+          buttonName={BUTTONS_TEXT.WRITE}
+        />
         <Button
           handleClick={() => navigate("/board/list")}
-          buttonName="Cancel"
+          buttonName={BUTTONS_TEXT.CANCEL}
         />
       </ButtonWrapper>
     </Layout>

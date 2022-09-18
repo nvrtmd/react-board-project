@@ -2,11 +2,15 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components/macro";
 import { Layout } from "../../../layout/layout";
-import { theme } from "../../../styles/theme";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../global/Button";
 import { ButtonWrapper } from "../board/ListPage";
 import { InputContainer } from "../../board/InputContainer";
+import {
+  PAGES_TITLES,
+  BUTTONS_TEXT,
+  INPUT_PLACEHOLDERS,
+} from "../../../constants";
 
 export function ProfilePage() {
   const navigate = useNavigate();
@@ -56,63 +60,13 @@ export function ProfilePage() {
 
   return (
     <Layout>
-      <PageTitle>PROFILE</PageTitle>
+      <PageTitle>{PAGES_TITLES.PROFILE}</PageTitle>
       <ProfileForm>
         <div>
-          {/* <ProfileInput>
-            <label htmlFor="userId">아이디</label>
-            <input
-              type="text"
-              id="userId"
-              name="userId"
-              value={userData.userId}
-              onChange={handleInputChange}
-            />
-          </ProfileInput>
-          <ProfileInput>
-            <label htmlFor="userPassword">비밀번호</label>
-            <input
-              type="password"
-              id="userPassword"
-              name="userPassword"
-              onChange={handleInputChange}
-            />
-          </ProfileInput>
-          <ProfileInput>
-            <label htmlFor="userName">닉네임</label>
-            <input
-              type="text"
-              id="userNickname"
-              name="userNickname"
-              value={userData.userNickname}
-              onChange={handleInputChange}
-            />
-          </ProfileInput>
-          <ProfileInput>
-            <label htmlFor="userName">이름</label>
-            <input
-              type="text"
-              id="userName"
-              name="userName"
-              value={userData.userName}
-              onChange={handleInputChange}
-            />
-          </ProfileInput>
-          <ProfileInput>
-            <label htmlFor="userPhone">전화번호</label>
-            <input
-              type="text"
-              id="userPhone"
-              name="userPhone"
-              value={userData.userPhone}
-              onChange={handleInputChange}
-            />
-          </ProfileInput> */}
-
           <UserIdWrapper>
             <InputContainer
               title="Id"
-              placeholder="Write id"
+              placeholder={INPUT_PLACEHOLDERS.WRITE_ID}
               name="userId"
               handleChange={handleInputChange}
               type="text"
@@ -122,7 +76,7 @@ export function ProfilePage() {
           <UserPasswordWrapper>
             <InputContainer
               title="Password"
-              placeholder="Write password"
+              placeholder={INPUT_PLACEHOLDERS.WRITE_PASSWORD}
               name="userPassword"
               handleChange={handleInputChange}
               type="password"
@@ -132,7 +86,7 @@ export function ProfilePage() {
           <UserNicknameWrapper>
             <InputContainer
               title="Nickname"
-              placeholder="Write nickname"
+              placeholder={INPUT_PLACEHOLDERS.WRITE_NICKNAME}
               name="userNickname"
               handleChange={handleInputChange}
               type="text"
@@ -142,7 +96,7 @@ export function ProfilePage() {
           <UserNameWrapper>
             <InputContainer
               title="Name"
-              placeholder="Write name"
+              placeholder={INPUT_PLACEHOLDERS.WRITE_NAME}
               name="userName"
               handleChange={handleInputChange}
               type="text"
@@ -152,7 +106,7 @@ export function ProfilePage() {
           <UserPhoneWrapper>
             <InputContainer
               title="Phone"
-              placeholder="Write phone number"
+              placeholder={INPUT_PLACEHOLDERS.WRITE_PHONE_NUMBER}
               name="userPhone"
               handleChange={handleInputChange}
               type="text"
@@ -163,11 +117,17 @@ export function ProfilePage() {
       </ProfileForm>
 
       <ButtonWrapper>
-        <Button handleClick={handleModifyButtonClick} buttonName="Modify" />
-        <Button handleClick={handleSignoutButtonClick} buttonName="Sign out" />
+        <Button
+          handleClick={handleModifyButtonClick}
+          buttonName={BUTTONS_TEXT.MODIFY}
+        />
+        <Button
+          handleClick={handleSignoutButtonClick}
+          buttonName={BUTTONS_TEXT.SIGN_OUT}
+        />
         <Button
           handleClick={handleUserDeleteButtonClick}
-          buttonName="Delete account"
+          buttonName={BUTTONS_TEXT.DELETE_ACCOUNT}
         />
       </ButtonWrapper>
     </Layout>

@@ -6,6 +6,7 @@ import { Layout } from "../../../layout/layout";
 import moment from "moment";
 import { Button } from "../../global/Button";
 import { PostContainer } from "../../board/PostContainer";
+import { BUTTONS_TEXT } from "../../../constants";
 
 export function ListPage() {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ export function ListPage() {
       <ButtonWrapper>
         <Button
           handleClick={() => navigate("/board/create")}
-          buttonName="Write"
+          buttonName={BUTTONS_TEXT.WRITE}
         />
       </ButtonWrapper>
       {postsData &&

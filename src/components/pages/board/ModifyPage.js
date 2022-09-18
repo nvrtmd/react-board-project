@@ -8,6 +8,12 @@ import { ButtonWrapper } from "./ListPage";
 import { InputContainer } from "../../board/InputContainer";
 import { TextInputContainer } from "../../board/TextInputContainer";
 import { SelectContainer } from "../../board/SelectContainer";
+import {
+  BUTTONS_TEXT,
+  PAGES_TITLES,
+  INPUT_PLACEHOLDERS,
+  POST_DISPLAY_SELECT_OPTIONS,
+} from "../../../constants";
 
 export function ModifyPage() {
   const navigate = useNavigate();
@@ -57,14 +63,14 @@ export function ModifyPage() {
 
   return (
     <Layout>
-      <PageTitle>MODIFY POST</PageTitle>
+      <PageTitle>{PAGES_TITLES.MODIFY_POST}</PageTitle>
       <PostModifyFormWrapper>
         <PostModifyForm>
           <PostTitleWrapper>
             <InputContainer
               title="Title"
               type="text"
-              placeholder="Write title"
+              placeholder={INPUT_PLACEHOLDERS.WRITE_TITLE}
               name="postTitle"
               handleChange={handleInputChange}
               value={postData.postTitle}
@@ -72,7 +78,7 @@ export function ModifyPage() {
           </PostTitleWrapper>
           <PostContentsWrapper>
             <TextInputContainer
-              placeholder="Write Contents"
+              placeholder={INPUT_PLACEHOLDERS.WRITE_CONTENTS}
               type="text"
               name="postContents"
               handleChange={handleInputChange}
@@ -81,10 +87,7 @@ export function ModifyPage() {
           </PostContentsWrapper>
           <SelectWrapper>
             <SelectContainer
-              optionList={[
-                { name: "게시함", value: true },
-                { name: "게시 안함", value: false },
-              ]}
+              optionList={POST_DISPLAY_SELECT_OPTIONS}
               name="postDisplay"
               handleChange={handleInputChange}
               value={Boolean(postData.postDisplay)}
@@ -93,10 +96,13 @@ export function ModifyPage() {
         </PostModifyForm>
       </PostModifyFormWrapper>
       <ButtonWrapper>
-        <Button handleClick={handleModifyButtonClick} buttonName="Modify" />
+        <Button
+          handleClick={handleModifyButtonClick}
+          buttonName={BUTTONS_TEXT.MODIFY}
+        />
         <Button
           handleClick={() => navigate("/board/list")}
-          buttonName="Cancel"
+          buttonName={BUTTONS_TEXT.CANCEL}
         />
       </ButtonWrapper>
     </Layout>

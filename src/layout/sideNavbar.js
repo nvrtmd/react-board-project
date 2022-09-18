@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import { useNavigate } from "react-router-dom";
 import { theme } from "../styles/theme";
+import { SIDE_NAVBAR_TAB_TEXT } from "../constants";
 
 export const SideNavbar = React.memo(function SideNavbar({
   isSignedin,
@@ -24,11 +25,11 @@ export const SideNavbar = React.memo(function SideNavbar({
       <ProfileWrapper>
         {isSignedin ? (
           <Profile>
-            Welcome, <br />
+            {SIDE_NAVBAR_TAB_TEXT.PROFILE_TAB.IS_NOT_SIGNED_IN} <br />
             {signedinUserName}!
           </Profile>
         ) : (
-          <Profile>Please sign in 🤗</Profile>
+          <Profile>{SIDE_NAVBAR_TAB_TEXT.PROFILE_TAB.IS_SIGNED_IN}</Profile>
         )}
       </ProfileWrapper>
       <TabWrapper>
@@ -36,14 +37,14 @@ export const SideNavbar = React.memo(function SideNavbar({
           isClicked={isClicked("board")}
           onClick={() => navigate("/board/list")}
         >
-          Board
+          {SIDE_NAVBAR_TAB_TEXT.BOARD_TAB}
         </Tab>
         {signedinUserName === "admin" && (
           <UserDashboardTab
             isClicked={isClicked("user")}
             onClick={() => navigate("/admin/userlist")}
           >
-            User Dashboard
+            {SIDE_NAVBAR_TAB_TEXT.USER_DASHBOARD_TAB}
           </UserDashboardTab>
         )}
       </TabWrapper>
@@ -54,12 +55,12 @@ export const SideNavbar = React.memo(function SideNavbar({
 const SideNavbarWrapper = styled.div`
   width: 23%;
   max-width: 200px;
-  background-color: ${theme.color.lightPurple};
+  background-color: ${theme.color.tertiary};
 `;
 
 const ProfileWrapper = styled.div`
   background-color: ${theme.color.primary};
-  color: ${theme.color.grey};
+  color: ${theme.color.black};
   padding: 3.5rem 1.5rem;
   font-size: 1rem;
 `;

@@ -25,7 +25,7 @@ export function PostContainer({
 }
 
 const PostWrapper = styled.div`
-  background: ${theme.color.lightPurple};
+  background: ${theme.color.tertiary};
   border-radius: 30px;
   padding: 2rem;
   margin: 10px;

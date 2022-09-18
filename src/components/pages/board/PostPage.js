@@ -6,6 +6,7 @@ import moment from "moment";
 import { Layout } from "../../../layout/layout";
 import { Button } from "../../global/Button";
 import { ButtonWrapper } from "./ListPage";
+import { BUTTONS_TEXT, ALERT_TEXT } from "../../../constants";
 
 export function PostPage() {
   const navigate = useNavigate();
@@ -47,7 +48,7 @@ export function PostPage() {
       });
       navigate("/board/list");
     } catch {
-      alert("삭제 권한이 없습니다.");
+      alert(ALERT_TEXT.CANNOT_DELETE_THE_POST);
     }
   };
 
@@ -63,7 +64,7 @@ export function PostPage() {
         throw error;
       }
     } catch {
-      alert("수정 권한이 없습니다.");
+      alert(ALERT_TEXT.CANNOT_MODIFY_THE_POST);
     }
   };
 
@@ -87,17 +88,24 @@ export function PostPage() {
           <PostBody>{postData.postContents} </PostBody>
         </PostWrapper>
         <ButtonWrapper>
-          <Button handleClick={handleModifyButtonClick} buttonName="Modify" />
-          <Button handleClick={handleDeleteButtonClick} buttonName="Delete" />
+          <Button
+            handleClick={handleModifyButtonClick}
+            buttonName={BUTTONS_TEXT.MODIFY}
+          />
+          <Button
+            handleClick={handleDeleteButtonClick}
+            buttonName={BUTTONS_TEXT.DELETE}
+          />
           <Button
             handleClick={() => navigate("/board/list")}
-            buttonName="List"
+            buttonName={BUTTONS_TEXT.LIST}
           />
         </ButtonWrapper>
       </PostContainer>
     </Layout>
   );
 }
+
 const PostContainer = styled.div`
   display: flex;
   flex-direction: column;

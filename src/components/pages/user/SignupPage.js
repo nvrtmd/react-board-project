@@ -6,6 +6,11 @@ import { Layout } from "../../../layout/layout";
 import { Button } from "../../global/Button";
 import { ButtonWrapper } from "../board/ListPage";
 import { InputContainer } from "../../board/InputContainer";
+import {
+  PAGES_TITLES,
+  BUTTONS_TEXT,
+  INPUT_PLACEHOLDERS,
+} from "../../../constants";
 
 export function SignupPage() {
   const navigate = useNavigate();
@@ -28,13 +33,13 @@ export function SignupPage() {
 
   return (
     <Layout>
-      <PageTitle>SIGN UP</PageTitle>
+      <PageTitle>{PAGES_TITLES.SIGN_UP}</PageTitle>
       <SignupForm>
         <div>
           <UserIdWrapper>
             <InputContainer
               title="Id"
-              placeholder="Write id"
+              placeholder={INPUT_PLACEHOLDERS.WRITE_ID}
               name="userId"
               handleChange={handleInputChange}
               type="text"
@@ -43,7 +48,7 @@ export function SignupPage() {
           <UserPasswordWrapper>
             <InputContainer
               title="Password"
-              placeholder="Write password"
+              placeholder={INPUT_PLACEHOLDERS.WRITE_PASSWORD}
               name="userPassword"
               handleChange={handleInputChange}
               type="password"
@@ -52,7 +57,7 @@ export function SignupPage() {
           <UserNicknameWrapper>
             <InputContainer
               title="Nickname"
-              placeholder="Write nickname"
+              placeholder={INPUT_PLACEHOLDERS.WRITE_NICKNAME}
               name="userNickname"
               handleChange={handleInputChange}
               type="text"
@@ -61,7 +66,7 @@ export function SignupPage() {
           <UserNameWrapper>
             <InputContainer
               title="Name"
-              placeholder="Write name"
+              placeholder={INPUT_PLACEHOLDERS.WRITE_NAME}
               name="userName"
               handleChange={handleInputChange}
               type="text"
@@ -70,7 +75,7 @@ export function SignupPage() {
           <UserPhoneWrapper>
             <InputContainer
               title="Phone"
-              placeholder="Write phone number"
+              placeholder={INPUT_PLACEHOLDERS.WRITE_PHONE_NUMBER}
               name="userPhone"
               handleChange={handleInputChange}
               type="text"
@@ -79,7 +84,10 @@ export function SignupPage() {
         </div>
       </SignupForm>
       <ButtonWrapper>
-        <Button handleClick={handleButtonClick} buttonName="Sign up" />
+        <Button
+          handleClick={handleButtonClick}
+          buttonName={BUTTONS_TEXT.SIGN_UP}
+        />
       </ButtonWrapper>
     </Layout>
   );

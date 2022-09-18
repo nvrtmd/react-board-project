@@ -6,7 +6,7 @@ export function Button({ handleClick, buttonName }) {
 }
 
 const ButtonBox = styled.div`
-  background: ${theme.color.lightPurple};
+  background: ${theme.color.tertiary};
   padding: 1rem;
   border-radius: 15px;
   display: flex;

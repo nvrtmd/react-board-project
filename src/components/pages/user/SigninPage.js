@@ -7,6 +7,12 @@ import { theme } from "../../../styles/theme";
 import { Button } from "../../global/Button";
 import { ButtonWrapper } from "../board/ListPage";
 import { InputContainer } from "../../board/InputContainer";
+import {
+  PAGES_TITLES,
+  BUTTONS_TEXT,
+  INPUT_PLACEHOLDERS,
+  ALERT_TEXT,
+} from "../../../constants";
 
 export function SigninPage() {
   const navigate = useNavigate();
@@ -24,19 +30,19 @@ export function SigninPage() {
       await axios.post(`/user/signin`, signinData, { withCredentials: true });
       navigate(`/board/list`);
     } catch {
-      alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+      alert(ALERT_TEXT.ID_OR_PASSWORD_DO_NOT_MATCH);
     }
   };
 
   return (
     <Layout>
-      <PageTitle>SIGN IN</PageTitle>
+      <PageTitle>{PAGES_TITLES.SIGN_IN}</PageTitle>
       <SigninForm>
         <div>
           <UserIdWrapper>
             <InputContainer
               title="Id"
-              placeholder="Write id"
+              placeholder={INPUT_PLACEHOLDERS.WRITE_ID}
               name="userId"
               handleChange={handleInputChange}
               type="text"
@@ -46,7 +52,7 @@ export function SigninPage() {
             <InputContainer
               title="Password"
               type="password"
-              placeholder="Write password"
+              placeholder={INPUT_PLACEHOLDERS.WRITE_PASSWORD}
               name="userPassword"
               handleChange={handleInputChange}
             />
@@ -54,11 +60,14 @@ export function SigninPage() {
         </div>
       </SigninForm>
       <ButtonWrapper>
-        <Button handleClick={handleButtonClick} buttonName="Sign in" />
+        <Button
+          handleClick={handleButtonClick}
+          buttonName={BUTTONS_TEXT.SIGN_IN}
+        />
       </ButtonWrapper>
       <SignupTextWrapper>
         <SignupText onClick={() => navigate("/user/signup")}>
-          Click to sign up
+          {BUTTONS_TEXT.CLICK_TO_SIGN_UP}
         </SignupText>
       </SignupTextWrapper>
     </Layout>
@@ -90,7 +99,7 @@ const SignupTextWrapper = styled.div`
 `;
 
 const SignupText = styled.div`
-  color: ${theme.color.lightPurple};
+  color: ${theme.color.tertiary};
   font-size: 1rem;
   cursor: pointer;
   text-decoration: underline;
