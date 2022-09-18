@@ -41,7 +41,7 @@ export const SideNavbar = React.memo(function SideNavbar({
         {signedinUserName === "admin" && (
           <UserDashboardTab
             isClicked={isClicked("user")}
-            onClick={() => navigate("/user/list")}
+            onClick={() => navigate("/admin/userlist")}
           >
             User Dashboard
           </UserDashboardTab>

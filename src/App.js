@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ListPage as PostListPage } from "./components/pages/board/ListPage";
-import { ListPage as UserListPage } from "./components/pages/user/ListPage";
+import { ListPage as PostsListPage } from "./components/pages/board/ListPage";
+import { ListPage as UsersListPage } from "./components/pages/admin/ListPage";
 import { SignupPage } from "./components/pages/user/SignupPage";
 import { SigninPage } from "./components/pages/user/SigninPage";
 import { ProfilePage } from "./components/pages/user/ProfilePage";
@@ -12,14 +12,14 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/board/list" element={<PostListPage />} />
+        <Route path="/board/list" element={<PostsListPage />} />
         <Route path="/board/:postId" element={<PostPage />} />
         <Route path="/board/create" element={<CreatePage />} />
         <Route path="/board/modify/:postId" element={<ModifyPage />} />
         <Route path="/user/signup" element={<SignupPage />} />
         <Route path="/user/signin" element={<SigninPage />} />
         <Route path="/user/profile" element={<ProfilePage />} />
-        <Route path="/user/list" element={<UserListPage />} />
+        <Route path="/admin/userlist" element={<UsersListPage />} />
       </Routes>
     </BrowserRouter>
   );

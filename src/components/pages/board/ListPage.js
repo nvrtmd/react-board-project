@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components/macro";
-import { theme } from "../../../styles/theme";
 import { Layout } from "../../../layout/layout";
 import moment from "moment";
 import { Button } from "../../global/Button";
