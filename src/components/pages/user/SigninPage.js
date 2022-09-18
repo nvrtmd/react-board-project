@@ -56,6 +56,11 @@ export function SigninPage() {
       <ButtonWrapper>
         <Button handleClick={handleButtonClick} buttonName="Sign in" />
       </ButtonWrapper>
+      <SignupTextWrapper>
+        <SignupText onClick={() => navigate("/user/signup")}>
+          Click to sign up
+        </SignupText>
+      </SignupTextWrapper>
     </Layout>
   );
 }
@@ -76,3 +81,22 @@ const UserIdWrapper = styled.div`
 `;
 
 const UserPasswordWrapper = styled(UserIdWrapper)``;
+
+const SignupTextWrapper = styled.div`
+  text-align: center;
+  margin-top: 35px;
+  display: grid;
+  place-content: center;
+`;
+
+const SignupText = styled.div`
+  color: ${theme.color.lightPurple};
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-position: under;
+  &:hover {
+    color: ${theme.color.secondary};
+    transition: all 0.3s ease;
+  }
+`;

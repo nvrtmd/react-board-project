@@ -14,7 +14,7 @@ export const Header = React.memo(function Header({
   const handleSignoutButtonClick = async () => {
     await axios.get(`/user/signout`, { withCredentials: true });
     setIsSignedin(false);
-    navigate(`/board/list`);
+    navigate(`/`);
   };
 
   return (
