@@ -24,12 +24,14 @@ export const SideNavbar = React.memo(function SideNavbar({
     <SideNavbarWrapper>
       <ProfileWrapper>
         {isSignedin ? (
-          <Profile>
+          <Profile onClick={() => navigate("/user/profile")}>
             {SIDE_NAVBAR_TAB_TEXT.PROFILE_TAB.IS_NOT_SIGNED_IN} <br />
             {signedinUserName}!
           </Profile>
         ) : (
-          <Profile>{SIDE_NAVBAR_TAB_TEXT.PROFILE_TAB.IS_SIGNED_IN}</Profile>
+          <Profile onClick={() => navigate("/user/signin")}>
+            {SIDE_NAVBAR_TAB_TEXT.PROFILE_TAB.IS_SIGNED_IN}
+          </Profile>
         )}
       </ProfileWrapper>
       <TabWrapper>
@@ -65,7 +67,9 @@ const ProfileWrapper = styled.div`
   font-size: 1rem;
 `;
 
-const Profile = styled.div``;
+const Profile = styled.div`
+  cursor: pointer;
+`;
 
 const TabWrapper = styled.div`
   font-size: 1.2rem;
