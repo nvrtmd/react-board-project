@@ -9,6 +9,7 @@
 ## 🧡Project Link
 
 <a href="https://react-board-project.netlify.app/" target="_blank">🐤Link🐤</a>
+
 <br>
 
 
@@ -22,6 +23,7 @@
 3. 로그인된 계정 한정 게시판 글 작성 기능 구현
    - 게시글 제목, 본문 작성 및 게시 여부 선택하여 글 작성
    - 자신이 작성한 글 한정 수정 및 삭제 가능
+
 <br>
 
 ## 💚To Do List (22.09.22 ver.)
@@ -39,6 +41,7 @@ $ npm install
 # serve with hot reload at localhost:3000
 $ npm start
 ```
+
 <br>
 
 
