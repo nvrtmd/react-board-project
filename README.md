@@ -1,12 +1,18 @@
 # SALLY's BOARD 🐥
 
-## 💛Project Link
+## ❤Description
+- 회원가입 및 로그인 기능이 제공되는 게시판 서비스
+
+<br>
+
+
+## 🧡Project Link
 
 <a href="https://react-board-project.netlify.app/" target="_blank">🐤Link🐤</a>
 <br>
 
 
-## 💚Implementation List
+## 💛Implementation List
 1. 회원가입, 로그인/로그아웃 기능 구현
    - 아이디, 비밀번호, 이름, 핸드폰 번호 정보 입력<br>
    - 로그인 된 계정은 게시판에 글을 작성할 수 있으며, 자신의 프로필 정보를 확인 및 수정 가능
@@ -18,7 +24,7 @@
    - 자신이 작성한 글 한정 수정 및 삭제 가능
 <br>
 
-## 🧡To Do List (22.09.22 ver.)
+## 💚To Do List (22.09.22 ver.)
 - [ ] 아이디, 비밀번호 등에 적용할 유효성 check (validation) 함수 구현
 - [ ] 리팩토링: 컴포넌트 분리 등
 
