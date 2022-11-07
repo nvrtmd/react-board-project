@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components/macro";
@@ -27,30 +27,29 @@ export function ModifyPage() {
     postDisplay: null,
   });
 
-  useEffect(() => {
-    const getPostData = async () => {
-      const fetchedPostData = await (
-        await axios.get(`/board/${params.postId}`)
-      ).data.data;
-
-      setPostData({
-        postId: fetchedPostData.post_id,
-        postTitle: fetchedPostData.post_title,
-        postContents: fetchedPostData.post_contents,
-        postRegisterUserName: fetchedPostData.post_register_user_name,
-        postViews: fetchedPostData.post_views,
-        postDisplay: fetchedPostData.post_display,
-      });
-    };
-
-    getPostData();
+  const getPostData = useCallback(async () => {
+    const fetchedPostData = await (
+      await axios.get(`/board/${params.postId}`)
+    ).data.data;
+    setPostData({
+      postId: fetchedPostData.post_id,
+      postTitle: fetchedPostData.post_title,
+      postContents: fetchedPostData.post_contents,
+      postRegisterUserName: fetchedPostData.post_register_user_name,
+      postViews: fetchedPostData.post_views,
+      postDisplay: fetchedPostData.post_display,
+    });
   }, [params.postId]);
 
-  const handleInputChange = (e) => {
-    setPostData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+  useEffect(() => {
+    getPostData();
+  }, [getPostData]);
 
-  const handleModifyButtonClick = async () => {
+  const handleInputChange = useCallback((e) => {
+    setPostData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }, []);
+
+  const handleModifyButtonClick = useCallback(async () => {
     setPostData((prev) => ({
       ...prev,
       postDisplay: prev.postDisplay === "true" ? 1 : 0,
@@ -59,7 +58,7 @@ export function ModifyPage() {
       withCredentials: true,
     });
     navigate(`/board/${postData.postId}`);
-  };
+  }, [navigate, postData]);
 
   return (
     <Layout>

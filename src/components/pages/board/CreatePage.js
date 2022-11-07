@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components/macro";
 import axios from "axios";
@@ -24,37 +24,41 @@ export function CreatePage() {
     postRegisterUserName: "",
   });
 
-  useEffect(() => {
-    const isSignedinUser = async () => {
-      try {
-        const userData = await axios.get(`/user/profile`, {
-          withCredentials: true,
-        });
+  const isSignedinUser = useCallback(async () => {
+    try {
+      const userData = await axios.get(`/user/profile`, {
+        withCredentials: true,
+      });
 
-        setNewPostData((prev) => ({
-          ...prev,
-          postRegisterUserName: userData.data.data.user_nickname,
-        }));
-      } catch {
-        navigate("/user/signin");
-      }
-    };
-
-    isSignedinUser();
+      setNewPostData((prev) => ({
+        ...prev,
+        postRegisterUserName: userData.data.data.user_nickname,
+      }));
+    } catch {
+      navigate("/user/signin");
+    }
   }, [navigate]);
 
-  const handleInputChange = (e) => {
-    setNewPostData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+  useEffect(() => {
+    isSignedinUser();
+  }, [isSignedinUser]);
 
-  const handleCreateButtonClick = async () => {
+  const handleInputChange = useCallback((e) => {
+    setNewPostData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }, []);
+
+  const handleCreateButtonClick = useCallback(async () => {
     setNewPostData((prev) => ({
       ...prev,
       postDisplay: prev.postDisplay === "true" ? 1 : 0,
     }));
     await axios.post(`/board/create`, newPostData, { withCredentials: true });
     navigate(`/board/list`);
-  };
+  }, [navigate, newPostData]);
+
+  const handleCancelButtonClick = useCallback(async () => {
+    navigate("/board/list");
+  }, [navigate]);
 
   return (
     <Layout>
@@ -94,7 +98,7 @@ export function CreatePage() {
           buttonName={BUTTONS_TEXT.WRITE}
         />
         <Button
-          handleClick={() => navigate("/board/list")}
+          handleClick={handleCancelButtonClick}
           buttonName={BUTTONS_TEXT.CANCEL}
         />
       </ButtonWrapper>

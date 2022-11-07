@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components/macro";
@@ -21,27 +21,26 @@ export function PostPage() {
     postDisplay: null,
   });
 
-  useEffect(() => {
-    const getPostData = async () => {
-      const fetchedPostData = await (
-        await axios.get(`/board/${params.postId}`)
-      ).data.data;
-
-      setPostData({
-        postId: fetchedPostData.post_id,
-        postTitle: fetchedPostData.post_title,
-        postContents: fetchedPostData.post_contents,
-        postRegisterUserName: fetchedPostData.post_register_user_name,
-        postRegisterDate: fetchedPostData.post_register_date,
-        postViews: fetchedPostData.post_views,
-        postDisplay: fetchedPostData.post_display,
-      });
-    };
-
-    getPostData();
+  const getPostData = useCallback(async () => {
+    const fetchedPostData = await (
+      await axios.get(`/board/${params.postId}`)
+    ).data.data;
+    setPostData({
+      postId: fetchedPostData.post_id,
+      postTitle: fetchedPostData.post_title,
+      postContents: fetchedPostData.post_contents,
+      postRegisterUserName: fetchedPostData.post_register_user_name,
+      postRegisterDate: fetchedPostData.post_register_date,
+      postViews: fetchedPostData.post_views,
+      postDisplay: fetchedPostData.post_display,
+    });
   }, [params.postId]);
 
-  const handleDeleteButtonClick = async () => {
+  useEffect(() => {
+    getPostData();
+  }, [getPostData]);
+
+  const handleDeleteButtonClick = useCallback(async () => {
     try {
       await axios.delete(`/board/delete/${postData.postId}`, {
         withCredentials: true,
@@ -50,9 +49,9 @@ export function PostPage() {
     } catch {
       alert(ALERT_TEXT.CANNOT_DELETE_THE_POST);
     }
-  };
+  }, [navigate, postData.postId]);
 
-  const handleModifyButtonClick = async () => {
+  const handleModifyButtonClick = useCallback(async () => {
     try {
       const userData = await axios.get(`/user/profile`, {
         withCredentials: true,
@@ -66,7 +65,7 @@ export function PostPage() {
     } catch {
       alert(ALERT_TEXT.CANNOT_MODIFY_THE_POST);
     }
-  };
+  }, [navigate, postData.postId, postData.postRegisterUserName]);
 
   return (
     <Layout>
