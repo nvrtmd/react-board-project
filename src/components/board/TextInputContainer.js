@@ -1,18 +1,22 @@
+import React, { memo } from "react";
 import styled from "styled-components/macro";
 import { theme } from "../../styles/theme";
 
-export function TextInputContainer({ name, handleChange, placeholder, value }) {
-  return (
-    <TextInputWrapper>
-      <TextInput
-        name={name}
-        placeholder={placeholder}
-        onChange={handleChange}
-        value={value}
-      />
-    </TextInputWrapper>
-  );
-}
+export const TextInputContainer = memo(
+  ({ name, handleChange, placeholder, value }) => {
+    return (
+      <TextInputWrapper>
+        <TextInput
+          name={name}
+          placeholder={placeholder}
+          onChange={handleChange}
+          value={value}
+        />
+      </TextInputWrapper>
+    );
+  }
+);
+
 const TextInputWrapper = styled.div`
   display: flex;
   justify-content: center;
