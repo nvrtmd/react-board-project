@@ -17,8 +17,6 @@ export const SideNavbar = memo(({ isSignedin, signedinUserName }) => {
     }
   };
 
-  console.log("SideNavbar");
-
   return (
     <SideNavbarWrapper>
       <ProfileWrapper>

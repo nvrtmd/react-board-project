@@ -1,20 +1,23 @@
+import React, { memo } from "react";
 import styled from "styled-components/macro";
 import { theme } from "../../styles/theme";
 
-export function SelectContainer({ optionList, handleChange, name, value }) {
-  return (
-    <SelectWrapper>
-      <Select onChange={handleChange} name={name} value={value}>
-        {optionList &&
-          optionList.map((option, index) => (
-            <Option key={index} value={option.value}>
-              {option.name}
-            </Option>
-          ))}
-      </Select>
-    </SelectWrapper>
-  );
-}
+export const SelectContainer = memo(
+  ({ optionList, handleChange, name, value }) => {
+    return (
+      <SelectWrapper>
+        <Select onChange={handleChange} name={name} value={value}>
+          {optionList &&
+            optionList.map((option, index) => (
+              <Option key={index} value={option.value}>
+                {option.name}
+              </Option>
+            ))}
+        </Select>
+      </SelectWrapper>
+    );
+  }
+);
 
 const SelectWrapper = styled.div`
   display: flex;

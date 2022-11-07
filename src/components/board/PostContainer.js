@@ -11,8 +11,6 @@ export const PostContainer = memo(
     postRegisterUserName,
     handleClick,
   }) => {
-    console.log("PostContainer");
-
     return (
       <PostWrapper onClick={handleClick}>
         <PostId>{postId}</PostId>

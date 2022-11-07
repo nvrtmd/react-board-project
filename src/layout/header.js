@@ -15,8 +15,6 @@ export const Header = memo(({ isSignedin, setIsSignedin }) => {
     navigate(`/`);
   };
 
-  console.log("Header");
-
   return (
     <HeaderContainer>
       <HeaderWrapper>

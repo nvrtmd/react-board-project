@@ -3,7 +3,6 @@ import styled from "styled-components/macro";
 import { theme } from "../../styles/theme";
 
 export const Button = memo(({ handleClick, buttonName }) => {
-  console.log("Button");
   return <ButtonBox onClick={handleClick}>{buttonName}</ButtonBox>;
 });
 
