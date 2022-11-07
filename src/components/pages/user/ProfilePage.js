@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components/macro";
 import { Layout } from "../../../layout/layout";
-import { useNavigate } from "react-router-dom";
-import { Button } from "../../global/Button";
-import { ButtonWrapper } from "../board/ListPage";
-import { InputContainer } from "../../board/InputContainer";
 import {
   PAGES_TITLES,
   BUTTONS_TEXT,
   INPUT_PLACEHOLDERS,
 } from "../../../constants";
+import { Button } from "../../global/Button";
+import { InputContainer } from "../../board/InputContainer";
+import { ButtonWrapper } from "../board/ListPage";
 
 export function ProfilePage() {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ export function ProfilePage() {
     userPhone: "",
   });
 
-  const getUserData = async () => {
+  const getUserData = useCallback(async () => {
     const fetchedUserData = await (
       await axios.get(`/user/profile`, { withCredentials: true })
     ).data.data;
@@ -33,30 +33,30 @@ export function ProfilePage() {
       userNickname: fetchedUserData.user_nickname,
       userPhone: fetchedUserData.user_phone,
     });
-  };
+  }, []);
 
   useEffect(() => {
     getUserData();
+  }, [getUserData]);
+
+  const handleInputChange = useCallback((e) => {
+    setUserData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }, []);
 
-  const handleInputChange = (e) => {
-    setUserData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleSignoutButtonClick = async () => {
+  const handleSignoutButtonClick = useCallback(async () => {
     await axios.get(`/user/signout`, { withCredentials: true });
     navigate(`/board/list`);
-  };
+  }, [navigate]);
 
-  const handleModifyButtonClick = async () => {
+  const handleModifyButtonClick = useCallback(async () => {
     await axios.post(`/user/profile`, userData, { withCredentials: true });
     navigate(`/board/list`);
-  };
+  }, [navigate, userData]);
 
-  const handleUserDeleteButtonClick = async () => {
+  const handleUserDeleteButtonClick = useCallback(async () => {
     await axios.delete(`/user/deleteuser`, { withCredentials: true });
     navigate(`/board/list`);
-  };
+  }, [navigate]);
 
   return (
     <Layout>
@@ -115,7 +115,6 @@ export function ProfilePage() {
           </UserPhoneWrapper>
         </div>
       </ProfileForm>
-
       <ButtonWrapper>
         <Button
           handleClick={handleModifyButtonClick}

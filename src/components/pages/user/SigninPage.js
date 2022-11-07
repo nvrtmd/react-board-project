@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components/macro";
 import axios from "axios";
 import { Layout } from "../../../layout/layout";
 import { theme } from "../../../styles/theme";
-import { Button } from "../../global/Button";
-import { ButtonWrapper } from "../board/ListPage";
-import { InputContainer } from "../../board/InputContainer";
 import {
   PAGES_TITLES,
   BUTTONS_TEXT,
   INPUT_PLACEHOLDERS,
   ALERT_TEXT,
 } from "../../../constants";
+import { Button } from "../../global/Button";
+import { ButtonWrapper } from "../board/ListPage";
+import { InputContainer } from "../../board/InputContainer";
 
 export function SigninPage() {
   const navigate = useNavigate();
@@ -21,18 +21,18 @@ export function SigninPage() {
     userPassword: "",
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = useCallback((e) => {
     setSigninData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+  }, []);
 
-  const handleButtonClick = async () => {
+  const handleButtonClick = useCallback(async () => {
     try {
       await axios.post(`/user/signin`, signinData, { withCredentials: true });
       navigate(`/board/list`);
     } catch {
       alert(ALERT_TEXT.ID_OR_PASSWORD_DO_NOT_MATCH);
     }
-  };
+  }, [navigate, signinData]);
 
   return (
     <Layout>

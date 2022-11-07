@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components/macro";
 import axios from "axios";
@@ -22,14 +22,14 @@ export function SignupPage() {
     userPhone: "",
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = useCallback((e) => {
     setSignupData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
+  }, []);
 
-  const handleButtonClick = async () => {
+  const handleButtonClick = useCallback(async () => {
     await axios.post(`/user/signup`, signupData);
     navigate(`/user/signin`);
-  };
+  }, [signupData, navigate]);
 
   return (
     <Layout>

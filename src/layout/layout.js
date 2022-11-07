@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import styled from "styled-components/macro";
 import axios from "axios";
 import { theme } from "../styles/theme";
 import { Header } from "./header";
 import { SideNavbar } from "./sideNavbar";
 
-export const Layout = (props) => {
+export const Layout = memo((props) => {
   const [isSignedin, setIsSignedin] = useState(false);
   const [signedinUserName, setSignedinUserName] = useState("");
 
@@ -37,7 +37,7 @@ export const Layout = (props) => {
       </Main>
     </>
   );
-};
+});
 
 const Main = styled.main`
   display: flex;
