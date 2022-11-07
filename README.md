@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# SALLY's BOARD 🐥
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## ❤Description
+- 회원가입 및 로그인 기능이 제공되는 게시판 서비스
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
 
-### `npm start`
+## 🧡Project Link
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<a href="https://react-board-project.netlify.app/" target="_blank">🐤Link🐤</a>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br>
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 💛Implementation List
+1. 회원가입, 로그인/로그아웃 기능 구현
+   - 아이디, 비밀번호, 이름, 핸드폰 번호 정보 입력<br>
+   - 로그인 된 계정은 게시판에 글을 작성할 수 있으며, 자신의 프로필 정보를 확인 및 수정 가능
+2. 관리자 로그인 시 가입된 계정들의 정보 확인 가능
+   - 계정 테이블을 통해 확인 가능
+   - 관리자는 계정을 임의로 삭제 가능
+3. 로그인된 계정 한정 게시판 글 작성 기능 구현
+   - 게시글 제목, 본문 작성 및 게시 여부 선택하여 글 작성
+   - 자신이 작성한 글 한정 수정 및 삭제 가능
 
-### `npm run build`
+<br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 💚To Do List (22.09.22 ver.)
+- [ ] 아이디, 비밀번호 등에 적용할 유효성 check (validation) 함수 구현
+- [ ] 리팩토링: 컴포넌트 분리 등
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## 💙Build Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+# install dependencies
+$ npm install
+# serve with hot reload at localhost:3000
+$ npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 💜Preview
+<div style={display: flex;}>
+<img src="https://user-images.githubusercontent.com/67324487/191682081-dfe2f51d-6750-4e10-89df-b6b7b9c20010.png" alt="preview" width="400"/>
+<img src="https://user-images.githubusercontent.com/67324487/191682312-15ebcc55-5208-4e5b-981e-78f4fc0247c5.png" alt="drawing" width="400"/>
+<img src="https://user-images.githubusercontent.com/67324487/191682367-e8a08cf7-9f47-486c-a659-e69806892cda.png" alt="drawing" width="400"/>
 
-## Learn More
+<img src="https://user-images.githubusercontent.com/67324487/191682438-eae120dc-09a1-4a1d-b6c8-109547442db7.png" alt="drawing" width="400" height="300"/>
+<img src="https://user-images.githubusercontent.com/67324487/191682498-a127aaa1-05bf-4c7e-ba74-0368e1770222.png" alt="drawing" width="400"/>
+<img src="https://user-images.githubusercontent.com/67324487/191682584-7dc2aced-22ba-479f-aada-7eaaef37a17d.png" alt="drawing" width="400"/>
+</div>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
