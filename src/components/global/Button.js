@@ -1,9 +1,11 @@
+import React, { memo } from "react";
 import styled from "styled-components/macro";
 import { theme } from "../../styles/theme";
 
-export function Button({ handleClick, buttonName }) {
+export const Button = memo(({ handleClick, buttonName }) => {
+  console.log("Button");
   return <ButtonBox onClick={handleClick}>{buttonName}</ButtonBox>;
-}
+});
 
 const ButtonBox = styled.div`
   background: ${theme.color.tertiary};

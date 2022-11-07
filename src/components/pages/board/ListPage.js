@@ -1,36 +1,42 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components/macro";
-import { Layout } from "../../../layout/layout";
 import moment from "moment";
+import { Layout } from "../../../layout/layout";
+import { BUTTONS_TEXT } from "../../../constants";
 import { Button } from "../../global/Button";
 import { PostContainer } from "../../board/PostContainer";
-import { BUTTONS_TEXT } from "../../../constants";
 
 export function ListPage() {
   const navigate = useNavigate();
   const [postsData, setPostsData] = useState([]);
 
-  const getPostsData = async () => {
+  const getPostsData = useCallback(async () => {
     const fetchedPostsData = await axios.get(`/board/list`);
-
     setPostsData(fetchedPostsData.data.data);
-  };
+  }, []);
 
   useEffect(() => {
     getPostsData();
-  }, []);
+  }, [getPostsData]);
 
-  const moveToPost = (postId) => {
-    navigate(`/board/${postId}`);
-  };
+  const moveToPost = useCallback(
+    (postId) => {
+      navigate(`/board/${postId}`);
+    },
+    [navigate]
+  );
+
+  const handleWriteButtonClick = useCallback(() => {
+    navigate("/board/create");
+  }, [navigate]);
 
   return (
     <Layout>
       <ButtonWrapper>
         <Button
-          handleClick={() => navigate("/board/create")}
+          handleClick={() => handleWriteButtonClick()}
           buttonName={BUTTONS_TEXT.WRITE}
         />
       </ButtonWrapper>

@@ -1,28 +1,33 @@
+import React, { memo } from "react";
 import styled from "styled-components/macro";
 import { theme } from "../../styles/theme";
 
-export function PostContainer({
-  postId,
-  postTitle,
-  postContents,
-  postRegisterDate,
-  postRegisterUserName,
-  handleClick,
-}) {
-  return (
-    <PostWrapper onClick={handleClick}>
-      <PostId>{postId}</PostId>
-      <PostTitle>{postTitle}</PostTitle>
-      <PostContents>{postContents}</PostContents>
-      <PostRegisterInfoWrapper>
-        <PostRegisterUserName>
-          posted by {postRegisterUserName}
-        </PostRegisterUserName>
-        <PostRegisterDate>{postRegisterDate}</PostRegisterDate>
-      </PostRegisterInfoWrapper>
-    </PostWrapper>
-  );
-}
+export const PostContainer = memo(
+  ({
+    postId,
+    postTitle,
+    postContents,
+    postRegisterDate,
+    postRegisterUserName,
+    handleClick,
+  }) => {
+    console.log("PostContainer");
+
+    return (
+      <PostWrapper onClick={handleClick}>
+        <PostId>{postId}</PostId>
+        <PostTitle>{postTitle}</PostTitle>
+        <PostContents>{postContents}</PostContents>
+        <PostRegisterInfoWrapper>
+          <PostRegisterUserName>
+            posted by {postRegisterUserName}
+          </PostRegisterUserName>
+          <PostRegisterDate>{postRegisterDate}</PostRegisterDate>
+        </PostRegisterInfoWrapper>
+      </PostWrapper>
+    );
+  }
+);
 
 const PostWrapper = styled.div`
   background: ${theme.color.tertiary};

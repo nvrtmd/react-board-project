@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styled from "styled-components/macro";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -6,10 +6,7 @@ import { theme } from "../styles/theme";
 import headerLogoImage from "../assets/header_logo.png";
 import { BUTTONS_TEXT } from "../constants";
 
-export const Header = React.memo(function Header({
-  isSignedin,
-  setIsSignedin,
-}) {
+export const Header = memo(({ isSignedin, setIsSignedin }) => {
   const navigate = useNavigate();
 
   const handleSignoutButtonClick = async () => {
@@ -17,6 +14,8 @@ export const Header = React.memo(function Header({
     setIsSignedin(false);
     navigate(`/`);
   };
+
+  console.log("Header");
 
   return (
     <HeaderContainer>

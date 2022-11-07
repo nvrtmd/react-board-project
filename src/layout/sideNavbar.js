@@ -1,13 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import styled from "styled-components/macro";
 import { useNavigate } from "react-router-dom";
 import { theme } from "../styles/theme";
 import { SIDE_NAVBAR_TAB_TEXT } from "../constants";
 
-export const SideNavbar = React.memo(function SideNavbar({
-  isSignedin,
-  signedinUserName,
-}) {
+export const SideNavbar = memo(({ isSignedin, signedinUserName }) => {
   const navigate = useNavigate();
 
   const isClicked = (tabName) => {
@@ -19,6 +16,8 @@ export const SideNavbar = React.memo(function SideNavbar({
       return true;
     }
   };
+
+  console.log("SideNavbar");
 
   return (
     <SideNavbarWrapper>
