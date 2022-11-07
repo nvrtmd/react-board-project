@@ -1,27 +1,23 @@
+import React, { memo } from "react";
 import styled from "styled-components/macro";
 import { theme } from "../../styles/theme";
 
-export function InputContainer({
-  title,
-  name,
-  placeholder,
-  handleChange,
-  type,
-  value,
-}) {
-  return (
-    <InputWrapper>
-      {title}
-      <Input
-        name={name}
-        type={type}
-        onChange={handleChange}
-        placeholder={placeholder}
-        value={value}
-      />
-    </InputWrapper>
-  );
-}
+export const InputContainer = memo(
+  ({ title, name, placeholder, handleChange, type, value }) => {
+    return (
+      <InputWrapper>
+        {title}
+        <Input
+          name={name}
+          type={type}
+          onChange={handleChange}
+          placeholder={placeholder}
+          value={value}
+        />
+      </InputWrapper>
+    );
+  }
+);
 
 const InputWrapper = styled.div`
   display: flex;
